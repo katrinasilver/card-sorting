@@ -9,48 +9,91 @@
   <title>Card Sorting Exercise</title>
 </head>
 <body>
-<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="/">
-      <!-- <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"> -->
-      <h1 class="title has-text-white is-4">Card Sorting Exercise</h1>
-    </a>
-
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarItems">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-
-  <div id="navbarItems" class="navbar-menu">
-    <!-- <div class="navbar-start">
-      <a href="#" class="navbar-item">
-        Documentation
+  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <h1 class="title has-text-white is-4">Card Sorting Exercise</h1>
       </a>
-    </div> -->
-    <div class="navbar-end">
-          <a class="button is-radiusless is-primary is-medium">
-            Submit Exercise
-          </a>
+
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarItems">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
-  </div>
-</nav>
+
+    <div id="navbarItems" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <a class="button is-radiusless is-primary is-medium">Submit Exercise</a>
+        </div>
+      </div>
+    </div>
+  </nav>
   <main class="section columns is-clearfix">
-      <section class="main column container is-three-quarters is-pulled-right">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga laborum similique fugiat ea dolorem sint, soluta unde
-        omnis obcaecati debitis, aliquam velit rerum incidunt voluptatibus magni repellat, sequi illo modi!
-      </section>
-      <aside class="sidebar container column is-pulled-left">
-        <h1>I am the sidebar</h1>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni repellendus voluptas, neque ab molestias nostrum
-        similique quas. Similique cum facilis excepturi perspiciatis itaque fuga quas repudiandae, maiores, ex nihil sunt?
-      </aside>
+    <!-- Story Cards -->
+    <aside class="sidebar column is-one-fifth">
+      <div class="create-story">
+        <a href="#" class="create button">
+          Add a Story Card
+        </a>
+        <a href="#" class="create button">
+          Import a List of Stories
+        </a>
+      </div>
+      <div class="stories">
+        <div class="story card">I am a story</div>
+        <div class="story card">I am a story</div>
+        <div class="story card">I am a story</div>
+        <div class="story card">I am a story</div>
+        <div class="story card">I am a story</div>
+        <div class="story card">I am a story</div>
+        <div class="story card">I am a story</div>
+        <div class="story card">I am a story</div>
+        <div class="story card">I am a story</div>
+        <div class="story card">I am a story</div>
+        <div class="story card">I am a story</div>
+        <div class="story card">I am a story</div>
+        <div class="story card">I am a story</div>
+        <div class="story card">I am a story</div>
+        <div class="story card">I am a story</div>
+        <div class="story card">I am a story</div>
+      </div>
+    </aside>
+
+    <section class="main column">
+      <!-- Instructions -->
+      <div class="how-to notification has-background-light has-text-centered has-text-grey">
+        <strong>Instructions:</strong> Sort the Story Cards on the left into Categories below that makes sense to you. <br/> <em class="has-text-dark">Make sure to name your categories!</em> &nbsp;
+        Don't worry, there are no right and wrong answers!
+      </div>
+
+      <!-- Story Categories -->
+      <div class="story-categories section is-marginless is-paddingless">
+
+        <div class="box category is-paddingless">
+          <h3 class="subtitle is-4 has-text-centered has-background-primary"><a class="has-text-white" href="#">Rename Category</a></h3>
+            <p class="has-text-centered">Drop Story Cards Here!</p>
+        </div>
+
+        <div class="box category is-paddingless">
+          <h3 class="subtitle is-4 has-text-centered has-background-primary"><a class="has-text-white" href="#">Rename Category</a></h3>
+          <p class="has-text-centered">Drop Story Cards Here!</p>
+        </div>
+
+        <div class="box category is-paddingless">
+          <h3 class="subtitle is-4 has-text-centered has-background-primary"><a class="has-text-white" href="#">Rename Category</a></h3>
+          <p class="has-text-centered">Drop Story Cards Here!</p>
+        </div>
+
+        <div class="box new category is-paddingless">
+          <p class="has-text-centered">Create a New Category</p>
+        </div>
+      </div>
+    </section>
   </main>
   <footer class="footer">
     <p class="container has-text-centered">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui magnam eveniet sint totam quis repellendus consequuntur animi magni officia. Optio harum dolore sint ullam eaque suscipit corrupti deleniti tempora ducimus.</p>
   </footer>
-
-
 </body>
 </html>

@@ -1,9 +1,90 @@
 @charset "utf-8";
 @import "../node_modules/bulma/bulma.sass";
+@import "./utilities";
 
 .navbar {
 
   .button {
-    padding: 1.7rem;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 1rem;
+  }
+
+  .navbar-burger span {
+    color: $link;
+  }
+}
+
+main.section {
+
+  .how-to {
+    border: 1px solid $grey-lighter;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+  }
+
+  .box {
+    box-shadow: none;
+    margin-bottom: 1rem;
+    min-height: 200px;
+    position: relative;
+
+    p {
+      color: $grey-lighter;
+      font-size: 1.3rem;
+      font-weight: 400;
+      left: 0;
+      line-height: 2rem;
+      position: absolute;
+      right: 0;
+      bottom: 30%;
+    }
+
+    &.category:not(.new) {
+      @include border(1px, solid, $primary);
+    }
+
+    &.new {
+      @include border(1px, solid, $grey-lighter)
+    }
+
+    .subtitle {
+      border-radius: 3px 3px 0 0;
+      font-weight: 300;
+      padding: .5rem;
+    }
+  }
+}
+
+aside.sidebar {
+
+  .create-story {
+    margin-bottom: 2rem;
+
+    .create {
+      color: $grey-lighter;
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      min-height: 150px;
+      white-space: inherit;
+      width: 100%;
+    }
+  }
+
+  .stories {
+    @include border(1px, solid, $grey-lighter);
+    border-left: 0;
+    border-right: 0;
+    max-height: 700px;
+    overflow-y: scroll;
+  }
+
+  .story {
+    border-radius: 3px;
+    margin: 1rem auto;
+    padding: .5rem;
+    text-align: center;
+    width: 90%;
   }
 }
