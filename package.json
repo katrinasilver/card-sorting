@@ -1,0 +1,12 @@
+{
+  "name": "card-sorting",
+  "version": "1.0.0",
+  "description": "an application for conducting card sorting exercises",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Katrina Agustin",
+  "license": "ISC"
+}
