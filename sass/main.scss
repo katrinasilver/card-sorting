@@ -2,6 +2,16 @@
 @import "../node_modules/bulma/bulma.sass";
 @import "./utilities";
 
+a {
+  color: $primary;
+  transition: .2s ease;
+
+  &:hover {
+    color: darken($primary, 10);
+    transition: .2s ease;
+  }
+}
+
 .navbar {
 
   .button {
@@ -28,13 +38,9 @@
 
   &:hover {
     border-color: $primary;
-    color: $primary;
+    color: darken($primary, 10);
     transition: .2s ease;
 
-    i {
-      color: $primary;
-      transition: .2s ease;
-    }
   }
 
   i {
@@ -86,6 +92,10 @@ main.section {
       border-radius: 3px 3px 0 0;
       font-weight: 300;
       padding: .5rem;
+
+      i {
+        font-size: 1rem;
+      }
     }
   }
 }
@@ -100,7 +110,7 @@ aside.sidebar {
     @include border(1px, solid, $grey-lighter);
     border-left: 0;
     border-right: 0;
-    max-height: 700px;
+    max-height: 500px;
     overflow-y: scroll;
   }
 
@@ -110,5 +120,15 @@ aside.sidebar {
     padding: .5rem;
     text-align: center;
     width: 90%;
+
+    .actions {
+      margin: .5rem 0 0;
+      padding: 0;
+
+      li {
+        display: inline-block;
+        margin-right: 1rem;
+      }
+    }
   }
 }

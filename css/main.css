@@ -6419,6 +6419,13 @@ label.panel-block {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem; }
 
+a {
+  color: #00d1b2;
+  transition: .2s ease; }
+  a:hover {
+    color: #009e86;
+    transition: .2s ease; }
+
 .navbar .button {
   font-size: 1rem;
   font-weight: 700;
@@ -6439,11 +6446,8 @@ label.panel-block {
   width: 100%; }
   .create:hover {
     border-color: #00d1b2;
-    color: #00d1b2;
+    color: #009e86;
     transition: .2s ease; }
-    .create:hover i {
-      color: #00d1b2;
-      transition: .2s ease; }
   .create i {
     font-family: 'Fontawesome';
     font-size: 2rem;
@@ -6483,6 +6487,8 @@ main.section .box {
     border-radius: 3px 3px 0 0;
     font-weight: 300;
     padding: .5rem; }
+    main.section .box .subtitle i {
+      font-size: 1rem; }
 
 aside.sidebar .create-story {
   margin-bottom: 2rem; }
@@ -6493,7 +6499,7 @@ aside.sidebar .stories {
   border-style: solid;
   border-left: 0;
   border-right: 0;
-  max-height: 700px;
+  max-height: 500px;
   overflow-y: scroll; }
 
 aside.sidebar .story {
@@ -6502,3 +6508,9 @@ aside.sidebar .story {
   padding: .5rem;
   text-align: center;
   width: 90%; }
+  aside.sidebar .story .actions {
+    margin: .5rem 0 0;
+    padding: 0; }
+    aside.sidebar .story .actions li {
+      display: inline-block;
+      margin-right: 1rem; }
