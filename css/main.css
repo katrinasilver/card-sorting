@@ -6419,5 +6419,5 @@ label.panel-block {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem; }
 
-body h1 {
-  font-family: sans-serif; }
+.navbar .button {
+  padding: 1.7rem; }

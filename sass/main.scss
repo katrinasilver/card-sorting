@@ -1,8 +1,9 @@
 @charset "utf-8";
 @import "../node_modules/bulma/bulma.sass";
 
-body {
-  h1 {
-    font-family: sans-serif;
+.navbar {
+
+  .button {
+    padding: 1.7rem;
   }
 }
