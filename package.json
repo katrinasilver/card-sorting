@@ -2,15 +2,16 @@
   "name": "card-sorting",
   "version": "1.0.0",
   "description": "an application for creating and conducting card sorting exercises",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify main.js -o bundle.js",
-    "watch": "watchify main.js -o bundle.js",
+    "build": "browserify scripts/main.js -o bundle.js",
+    "watch": "watchify scripts/main.js -o bundle.js",
     "css-build": "node-sass --omit-source-map-url sass/main.scss css/main.css",
     "css-watch": "npm run css-build -- --watch",
+    "start": "npm run css-watch",
     "dev-server": "live-server .",
-    "dev": "run-all \"npm run watch\" \"npm run dev-server\" \"npm run css-watch\""
+    "dev": "run-all \"npm run watch\" \"npm run dev-server\""
   },
   "repository": {
     "type": "git",
