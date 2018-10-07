@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script defer src="bundle.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/solid.css" integrity="sha384-VGP9aw4WtGH/uPAOseYxZ+Vz/vaTb1ehm1bwx92Fm8dTrE+3boLfF1SpAtB1z7HW"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/fontawesome.css" integrity="sha384-1rquJLNOM3ijoueaaeS5m+McXPJCGdr5HcA03/VHXxcp2kX2sUrQDmFc3jR5i/C7"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="/css/main.css">
   <title>Card Sorting Exercise</title>
 </head>
@@ -35,10 +39,12 @@
     <aside class="sidebar column is-one-fifth">
       <div class="create-story">
         <a href="#" class="create button">
-          Add a Story Card
+          <i class="fas fa-plus"></i>
+          <p>Add a Story Card</p>
         </a>
         <a href="#" class="create button">
-          Import a List of Stories
+          <i class="fas fa-plus"></i>
+          <p>Import a List of Stories</p>
         </a>
       </div>
       <div class="stories">
@@ -71,6 +77,11 @@
       <!-- Story Categories -->
       <div class="story-categories section is-marginless is-paddingless">
 
+        <a class="create button" href="#">
+          <i class="fas fa-plus"></i>
+          <p>Create a New Category</p>
+        </a>
+
         <div class="box category is-paddingless">
           <h3 class="subtitle is-4 has-text-centered has-background-primary"><a class="has-text-white" href="#">Rename Category</a></h3>
             <p class="has-text-centered">Drop Story Cards Here!</p>
@@ -86,9 +97,6 @@
           <p class="has-text-centered">Drop Story Cards Here!</p>
         </div>
 
-        <div class="box new category is-paddingless">
-          <p class="has-text-centered">Create a New Category</p>
-        </div>
       </div>
     </section>
   </main>

@@ -15,6 +15,41 @@
   }
 }
 
+.create {
+  color: $grey-lighter;
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  height: 120px;
+  transition: .2s ease;
+  white-space: inherit;
+  width: 100%;
+
+  &:hover {
+    border-color: $primary;
+    color: $primary;
+    transition: .2s ease;
+
+    i {
+      color: $primary;
+      transition: .2s ease;
+    }
+  }
+
+  i {
+    font-family: 'Fontawesome';
+    font-size: 2rem;
+    font-weight: 300;
+    margin-top: 1rem;
+  }
+
+  p {
+    color: $primary;
+    line-height: 1.5rem;
+  }
+}
+
 main.section {
 
   .how-to {
@@ -32,7 +67,6 @@ main.section {
     p {
       color: $grey-lighter;
       font-size: 1.3rem;
-      font-weight: 400;
       left: 0;
       line-height: 2rem;
       position: absolute;
@@ -60,16 +94,6 @@ aside.sidebar {
 
   .create-story {
     margin-bottom: 2rem;
-
-    .create {
-      color: $grey-lighter;
-      font-size: 1.3rem;
-      font-weight: 400;
-      margin-bottom: 1rem;
-      min-height: 150px;
-      white-space: inherit;
-      width: 100%;
-    }
   }
 
   .stories {
