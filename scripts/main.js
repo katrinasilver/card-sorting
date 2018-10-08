@@ -1,5 +1,5 @@
 const render = require('./partials/render')
-const data = require('./partials/data')
+// const data = require('./partials/data')
 
 document.addEventListener('DOMContentLoad', () => {
   render.headerJs()
@@ -19,7 +19,6 @@ addCardElement.addEventListener('click', (e) => {
   const save = document.querySelectorAll('a.fa-check')
   render.saveCard(save)
 })
-
 
 // Create an instance of card category
 const addCategory = document.querySelector('.create.category.button')

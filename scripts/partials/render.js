@@ -1,6 +1,7 @@
-const data = require('./data')
+// const data = require('./data')
 const templates = require('./templates')
 
+// responsive header config
 const headerJS = () => {
   // Get all "navbar-burger" elements
   const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0)
@@ -16,14 +17,13 @@ const headerJS = () => {
         // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
         el.classList.toggle('is-active')
         $target.classList.toggle('is-active')
-
       })
     })
   }
 }
 
 const addStoryCard = (container) => {
-  let story = data.map(card => templates.storyCard(card)).join('')
+  let story = templates.storyCard()
   container.innerHTML += story
 }
 
@@ -42,13 +42,13 @@ const removeCard = (deleter) => {
 }
 
 const saveCard = (saver) => {
-  for (let s of saver) {
-    let text = document.querySelector('textarea.storyline')
+  saver.forEach(s => {
     s.addEventListener('click', () => {
+      let text = document.querySelector('textarea.storyline')
       text.setAttribute('readonly', 'readonly')
       text.style.border = 0
     })
-  }
+  })
 }
 
 module.exports = {
