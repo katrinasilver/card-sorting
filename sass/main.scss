@@ -122,20 +122,21 @@ aside.sidebar {
 
     .storyline {
       font-size: 1rem;
-      width: 75%;
-
-      &:focus {
-        background-color: $white-ter;
-      }
+      height: 60px;
+      outline: none;
+      resize: none;
+      width: 100%;
     }
 
     a {
-      float: right;
+      display: inline-block;
+      float: left;
       line-height: 1rem;
-      margin: 5px;
+      margin: 5px 5px 10px;
 
       &.fa-grip-vertical {
         cursor: move;
+        float: right;
       }
     }
   }

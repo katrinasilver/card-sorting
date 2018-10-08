@@ -1,10 +1,10 @@
 const storyCard = () => {
   return `
     <div class="story card">
-      <input type="textarea" class="storyline" name="story-card" value="Type a task card for sorting" required>
       <a class="fas fa-grip-vertical"></a>
       <a class="fas fa-times"></a>
       <a class="fas fa-check"></a>
+      <textarea class="storyline" name="story-card" placeholder="Type a task card for sorting" maxlength="100" required></textarea>
     </div>
   `
 }

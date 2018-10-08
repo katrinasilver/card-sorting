@@ -6509,12 +6509,15 @@ aside.sidebar .story {
   width: 90%; }
   aside.sidebar .story .storyline {
     font-size: 1rem;
-    width: 75%; }
-    aside.sidebar .story .storyline:focus {
-      background-color: whitesmoke; }
+    height: 60px;
+    outline: none;
+    resize: none;
+    width: 100%; }
   aside.sidebar .story a {
-    float: right;
+    display: inline-block;
+    float: left;
     line-height: 1rem;
-    margin: 5px; }
+    margin: 5px 5px 10px; }
     aside.sidebar .story a.fa-grip-vertical {
-      cursor: move; }
+      cursor: move;
+      float: right; }
