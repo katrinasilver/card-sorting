@@ -1,5 +1,6 @@
-// const data = require('./data')
+const data = require('./data')
 const templates = require('./templates')
+const shortId = require('short-id')
 
 // responsive header config
 const headerJS = () => {
@@ -23,8 +24,13 @@ const headerJS = () => {
 }
 
 const addStoryCard = (container) => {
-  let story = templates.storyCard()
-  container.innerHTML += story
+  data.storyCards.push({ id: shortId.generate, text: '', readonly: false })
+  container.innerHTML = templates.storyCards(data.storyCards)
+}
+
+const saveStoryCard = (container) => {
+  data.storyCards.push({ id: shortId.generate, text: '', readonly: true })
+  container.textContent = templates.storyCard(data.storyCards)
 }
 
 const addCategory = (container) => {
@@ -32,7 +38,7 @@ const addCategory = (container) => {
   container.innerHTML += category;
 }
 
-const removeCard = (deleter) => {
+const handleRemove = (deleter) => {
   for (d of deleter) {
     d.addEventListener('click', (e) => {
       let parent = e.target.parentNode
@@ -41,16 +47,6 @@ const removeCard = (deleter) => {
   }
 }
 
-const saveCard = (saver) => {
-  saver.forEach(s => {
-    s.addEventListener('click', () => {
-      let text = document.querySelector('textarea.storyline')
-      text.setAttribute('readonly', 'readonly')
-      text.style.border = 0
-    })
-  })
-}
-
 module.exports = {
-  addStoryCard, addCategory, removeCard, saveCard
+  addStoryCard, addCategory, handleRemove, saveStoryCard
 }

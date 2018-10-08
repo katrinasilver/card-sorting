@@ -19,7 +19,9 @@
   "keywords": [],
   "author": "Katrina Agustin",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "short-id": "0.1.0-1"
+  },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.3.1",
     "browserify": "^16.2.3",

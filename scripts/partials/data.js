@@ -1,3 +1,9 @@
-module.exports = [{
-  "a":"1", "b":"2", "c":"3"
-}]
+const shortId = require('short-id')
+
+module.exports.storyCards = [
+  {
+    id: shortId.generate(),
+    text: 'Type a task card for sorting',
+    readonly: false
+  }
+]
