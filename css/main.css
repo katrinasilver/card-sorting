@@ -6506,11 +6506,15 @@ aside.sidebar .story {
   border-radius: 3px;
   margin: 1rem auto;
   padding: .5rem;
-  text-align: center;
   width: 90%; }
-  aside.sidebar .story .actions {
-    margin: .5rem 0 0;
-    padding: 0; }
-    aside.sidebar .story .actions li {
-      display: inline-block;
-      margin-right: 1rem; }
+  aside.sidebar .story .storyline {
+    font-size: 1rem;
+    width: 75%; }
+    aside.sidebar .story .storyline:focus {
+      background-color: whitesmoke; }
+  aside.sidebar .story a {
+    float: right;
+    line-height: 1rem;
+    margin: 5px; }
+    aside.sidebar .story a.fa-grip-vertical {
+      cursor: move; }

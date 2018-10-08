@@ -36,91 +36,35 @@
   </nav>
   <main class="section columns is-clearfix">
     <!-- Story Cards -->
-    <aside class="sidebar column is-one-fifth">
+    <aside class="sidebar column is-one-third">
       <div class="create-story">
-        <a href="#" class="create button">
+        <a class="create button">
           <i class="fas fa-plus"></i>
           <p>Add a Story Card</p>
         </a>
-        <a href="#" class="create button">
+        <!-- <a class="create import button">
           <i class="fas fa-plus"></i>
           <p>Import a List of Stories</p>
-        </a>
+        </a> -->
       </div>
-      <div class="stories">
-
-        <div class="story card">
-          <span class="storyline">I am a story with 2 lines blah blah blah</span>
-          <ul class="actions">
-           <li><a href="#" class="fa fa-pen"></a></li>
-            <li><a href="#" class="fa fa-trash"></a></li>
-          </ul>
-        </div>
-
-        <div class="story card">
-          <span class="storyline">I am a story with 2 lines blah blah blah</span>
-          <ul class="actions">
-            <li><a href="#" class="fa fa-pen"></a></li>
-            <li><a href="#" class="fa fa-trash"></a></li>
-          </ul>
-        </div>
-
-        <div class="story card">
-          <span class="storyline">I am story card with 2 lines blah blah blah</span>
-          <ul class="actions">
-            <li><a href="#" class="fa fa-pen"></a></li>
-            <li><a href="#" class="fa fa-trash"></a></li>
-          </ul>
-        </div>
-
-        <div class="story card">
-          <span class="storyline">I am story card with 2 lines blah blah blah</span>
-          <ul class="actions">
-            <li><a href="#" class="fa fa-pen"></a></li>
-            <li><a href="#" class="fa fa-trash"></a></li>
-          </ul>
-        </div>
-
-        <div class="story card">
-          <span class="storyline">I am story card with 2 lines blah blah blah</span>
-          <ul class="actions">
-            <li><a href="#" class="fa fa-pen"></a></li>
-            <li><a href="#" class="fa fa-trash"></a></li>
-          </ul>
-        </div>
-
-        <div class="story card">
-          <span class="storyline">I am story card with 2 lines blah blah blah</span>
-          <ul class="actions">
-            <li><a href="#" class="fa fa-pen"></a></li>
-            <li><a href="#" class="fa fa-trash"></a></li>
-          </ul>
-        </div>
-
+      <div id="stories" class="stories">
+        <!-- append stories here -->
       </div>
     </aside>
 
     <section class="main column">
       <!-- Instructions -->
       <div class="how-to notification has-background-light has-text-centered has-text-grey">
-        <strong>Instructions:</strong> Sort the Story Cards on the left into Categories below that makes sense to you. Don't worry, there are no right and wrong answers! <br/> <strong>Make sure to name your categories.</strong> &nbsp; Click the <strong>Submit Exercise</strong> button on the top right when you're done.
+        <strong>Instructions:</strong> Sort the Story Cards on the left into Categories below that makes sense to you. Don't worry, there are no right or wrong answers! <br/> <strong>Make sure to name your categories.</strong>&nbsp;Click the <strong>Submit Exercise</strong> button on the top right when you're done.
       </div>
 
       <!-- Story Categories -->
+      <a class="create category button" href="#">
+        <i class="fas fa-plus"></i>
+        <p>Create a New Category</p>
+      </a>
       <div class="story-categories section is-marginless is-paddingless">
-
-        <a class="create button" href="#">
-          <i class="fas fa-plus"></i>
-          <p>Create a New Category</p>
-        </a>
-
-        <div class="box category is-paddingless">
-          <h3 class="subtitle is-4 has-text-centered has-background-primary">
-            <a class="has-text-white" href="#">Rename Category <i class="fa fa-pen"></i></a>
-          </h3>
-            <p class="has-text-centered">Drop Story Cards Here!</p>
-        </div>
-
+        <!-- Append Categories Here -->
       </div>
     </section>
   </main>

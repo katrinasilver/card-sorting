@@ -118,16 +118,24 @@ aside.sidebar {
     border-radius: 3px;
     margin: 1rem auto;
     padding: .5rem;
-    text-align: center;
     width: 90%;
 
-    .actions {
-      margin: .5rem 0 0;
-      padding: 0;
+    .storyline {
+      font-size: 1rem;
+      width: 75%;
 
-      li {
-        display: inline-block;
-        margin-right: 1rem;
+      &:focus {
+        background-color: $white-ter;
+      }
+    }
+
+    a {
+      float: right;
+      line-height: 1rem;
+      margin: 5px;
+
+      &.fa-grip-vertical {
+        cursor: move;
       }
     }
   }

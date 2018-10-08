@@ -1,21 +1,20 @@
 const render = require('./partials/render')
 const data = require('./partials/data')
 
-// Get all "navbar-burger" elements
-const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+document.addEventListener('DOMContentLoad', () => {
+  render.headerJs();
+})
 
-// Check if there are any navbar burgers
-if ($navbarBurgers.length > 0) {
-  // Add a click event on each of them
-  $navbarBurgers.forEach(el => {
-    el.addEventListener('click', () => {
-      // Get the target from the "data-target" attribute
-      const target = el.dataset.target;
-      const $target = document.getElementById(target);
-      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-      el.classList.toggle('is-active');
-      $target.classList.toggle('is-active');
+// Create an instance of story card
+const addCardElement = document.querySelector('.create.button:not(.import)');
+addCardElement.addEventListener('click', (e) => {
+  const stories = document.querySelector('#stories');
+  render.addStoryCard(stories)
+})
 
-    });
-  });
-}
+// Create an instance of card category
+const addCategory = document.querySelector('.create.category.button');
+addCategory.addEventListener('click', (e) => {
+  const category = document.querySelector('.story-categories');
+  render.addCategory(category)
+})
