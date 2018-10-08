@@ -1,11 +1,9 @@
-const cardForm = (value, id, readonly) => {
+const cardForm = () => {
   return `
-    <div class="story card" data-id="${id}">
-      <form>
-        <a class="fas fa-check"></a>
-        <textarea class="storyline" name="storycard" placeholder="Type a task card for sorting" maxlength="100" required></textarea>
-      </form>
-    </div>
+    <form>
+      <textarea class="storyline" name="storycard" placeholder="Type a task card for sorting" maxlength="100" required></textarea>
+      <input type="submit" class="fas fa-check" value="Add">
+    </form>
   `
 }
 
@@ -35,5 +33,5 @@ const cardCategory = () => {
 }
 
 module.exports = {
-  storyCard, storyValue, cardCategory
+  cardForm, storyCard, storyValue, cardCategory
 }

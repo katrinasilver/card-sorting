@@ -1,3 +1,6 @@
-module.exports.storyFormat = [
-
+module.exports = [
+  // {
+  //   "text": "",
+  //   "id" : ""
+  // }
 ]

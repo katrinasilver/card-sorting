@@ -1,7 +1,7 @@
 const templates = require('./templates')
 const data = require('./data')
-const shortId = require('short-id')
-const stories = document.querySelector('#stories')
+// const shortId = require('short-id')
+// const stories = document.querySelector('#stories')
 
 
 const headerJS = () => {
@@ -24,13 +24,30 @@ const headerJS = () => {
   }
 }
 
-const addStoryCard = (container) => {
+const fillOutCard = (container) => container.innerHTML = templates.cardForm()
+
+const showAll = (container) => {
+  const cards = data.map(card => templates.storyCard(card.text, card.id)).join('')
+  container.innerHTML = cards
+}
+
+const addCategory = (container) => {
+  let category = templates.cardCategory()
+  container.innerHTML += category;
+}
+
+const handleRemove = (deleter) => {
+  const target = e.target.parentNode
+}
+
+// const createCard = (container) => {
+
   // data.storyFormat.push({ id: shortId.generate(), text: '', readonly: '' })
   // container.innerHTML = templates.storyValue(data.storyFormat)
 
   // const del = document.querySelectorAll('a.fa-times')
   // handleRemove(del)
-}
+// }
 
 
 // const handleRemove = (deleter) => {
@@ -55,11 +72,6 @@ const addStoryCard = (container) => {
 
 // }
 
-const addCategory = (container) => {
-  let category = templates.cardCategory()
-  container.innerHTML += category;
-}
-
 module.exports = {
-  headerJS, addStoryCard, addCategory
+  headerJS, fillOutCard, showAll, handleRemove, addCategory
 }

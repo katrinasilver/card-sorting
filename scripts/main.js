@@ -1,5 +1,6 @@
 const render = require('./partials/render')
 const data = require('./partials/data')
+const shortId = require('short-id')
 
 // Responsive header config
 render.headerJS()
@@ -9,22 +10,38 @@ const addCardElement = document.querySelector('.create.button:not(.import)')
 addCardElement.addEventListener('click', (e) => {
 
   // Add a card
-  const stories = document.querySelector('#stories')
-  render.addStoryCard(stories)
+  const storyForm = document.querySelector('#storyForm')
+  render.fillOutCard(storyForm)
 
-  // Delete a card
+  const stories = document.querySelector('#stories')
+  render.showAll(stories)
+
+  const form = document.querySelector('form')
+  form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    let val = {
+      "text": e.target.storycard.value,
+      "id": shortId.generate()
+    }
+    console.log(val)
+    data.unshift(val)
+    render.showAll(stories)
+  })
+
+  //Delete a card
   const del = document.querySelectorAll('a.fa-times')
   render.handleRemove(del)
-  // Save contents of card
-  const save = document.querySelector('a.fa-check')
-  // console.log(save);
-  save.addEventListener('click', (e) => {
-    const newStory = e.target.storycard.value
-    console.log(newStory);
 
-    data.unshift(newStory)
-    render.addStoryCard(stories)
- })
+  // Save contents of card
+  // const save = document.querySelector('a.fa-check')
+  // console.log(save);
+//   save.addEventListener('click', (e) => {
+//     const newStory = e.target.storycard.value
+//     console.log(newStory);
+
+//     data.unshift(newStory)
+//     render.addStoryCard(stories)
+//  })
 
 })
 
