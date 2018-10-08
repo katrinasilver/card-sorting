@@ -1,9 +1,8 @@
 const render = require('./partials/render')
-// const data = require('./partials/data')
+const data = require('./partials/data')
 
-document.addEventListener('DOMContentLoad', () => {
-  render.headerJs()
-})
+// Responsive header config
+render.headerJS()
 
 // Create an instance of story card
 const addCardElement = document.querySelector('.create.button:not(.import)')
@@ -13,7 +12,7 @@ addCardElement.addEventListener('click', (e) => {
 
   // Delete a card
   const del = document.querySelectorAll('a.fa-times')
-  render.removeCard(del)
+  render.handleRemove(del)
 
   // Save a card
   const save = document.querySelectorAll('a.fa-check')

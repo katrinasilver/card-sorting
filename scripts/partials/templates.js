@@ -4,7 +4,7 @@ const storyCard = () => {
       <a class="fas fa-grip-vertical"></a>
       <a class="fas fa-times"></a>
       <a class="fas fa-check"></a>
-      <textarea class="storyline" name="story-card" placeholder="Type a task card for sorting" maxlength="100" required></textarea>
+      <textarea class="storyline" name="storycard" placeholder="Type a task card for sorting" maxlength="100" required></textarea>
     </div>
   `
 }

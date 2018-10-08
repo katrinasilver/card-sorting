@@ -1,7 +1,6 @@
-// const data = require('./data')
 const templates = require('./templates')
+const data = require('./data')
 
-// responsive header config
 const headerJS = () => {
   // Get all "navbar-burger" elements
   const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0)
@@ -32,7 +31,7 @@ const addCategory = (container) => {
   container.innerHTML += category;
 }
 
-const removeCard = (deleter) => {
+const handleRemove = (deleter) => {
   for (d of deleter) {
     d.addEventListener('click', (e) => {
       let parent = e.target.parentNode
@@ -41,16 +40,15 @@ const removeCard = (deleter) => {
   }
 }
 
-const saveCard = (saver) => {
-  saver.forEach(s => {
+const saveCard = (save) => {
+  for (let s of save) {
     s.addEventListener('click', () => {
-      let text = document.querySelector('textarea.storyline')
-      text.setAttribute('readonly', 'readonly')
-      text.style.border = 0
+      let textarea = document.querySelector('.storyline')
+      console.log(textarea.value)
     })
-  })
+  }
 }
 
 module.exports = {
-  addStoryCard, addCategory, removeCard, saveCard
+  addStoryCard, addCategory, handleRemove, headerJS, saveCard
 }
