@@ -1,12 +1,26 @@
-const storyCard = () => {
+const cardForm = (value, id, readonly) => {
   return `
-    <div class="story card">
-      <a class="fas fa-grip-vertical"></a>
-      <a class="fas fa-times"></a>
-      <a class="fas fa-check"></a>
-      <textarea class="storyline" name="storycard" placeholder="Type a task card for sorting" maxlength="100" required></textarea>
+    <div class="story card" data-id="${id}">
+      <form>
+        <a class="fas fa-check"></a>
+        <textarea class="storyline" name="storycard" placeholder="Type a task card for sorting" maxlength="100" required></textarea>
+      </form>
     </div>
   `
+}
+
+const storyCard = (value, id) => {
+  return `
+    <div class="story card" data-id="${id}">
+      <a class="fas fa-grip-vertical"></a>
+      <a class="fas fa-times"></a>
+      <div class="storyline"required r>${value}</div>
+    </div>
+  `
+}
+
+const storyValue = (cardVal) => {
+  return cardVal.map(card => cardForm(card.text, card.id, card.readonly)).join('\n')
 }
 
 const cardCategory = () => {
@@ -21,5 +35,5 @@ const cardCategory = () => {
 }
 
 module.exports = {
-  storyCard, cardCategory
+  storyCard, storyValue, cardCategory
 }

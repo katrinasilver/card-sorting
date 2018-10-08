@@ -7,16 +7,25 @@ render.headerJS()
 // Create an instance of story card
 const addCardElement = document.querySelector('.create.button:not(.import)')
 addCardElement.addEventListener('click', (e) => {
+
+  // Add a card
   const stories = document.querySelector('#stories')
   render.addStoryCard(stories)
 
   // Delete a card
   const del = document.querySelectorAll('a.fa-times')
   render.handleRemove(del)
+  // Save contents of card
+  const save = document.querySelector('a.fa-check')
+  // console.log(save);
+  save.addEventListener('click', (e) => {
+    const newStory = e.target.storycard.value
+    console.log(newStory);
 
-  // Save a card
-  const save = document.querySelectorAll('a.fa-check')
-  render.saveCard(save)
+    data.unshift(newStory)
+    render.addStoryCard(stories)
+ })
+
 })
 
 // Create an instance of card category
