@@ -9,10 +9,6 @@ render.headerJS()
 const storyForm = document.querySelector('#storyForm')
 render.fillOutCard(storyForm)
 
-// Show stories section
-const stories = document.querySelector('#stories')
-render.showCard(stories)
-
 // Show the new card in stories section
 const form1 = document.querySelector('#card')
 form1.addEventListener('submit', (e) => {
@@ -22,7 +18,7 @@ form1.addEventListener('submit', (e) => {
     "id": shortId.generate()
   }
   data.cards.unshift(val)
-  render.showCard(stories)
+  render.showCard(document.querySelector('#stories'))
 
   //Delete a card
   const del = document.querySelectorAll('a.fa-times')
@@ -41,5 +37,6 @@ form2.addEventListener('submit', (e) => {
     "id": shortId.generate()
   }
   data.categories.unshift(val)
-  render.showCategory(document.querySelector('.story-categories'))
+  const catSection = document.querySelector('.story-categories')
+  render.showCategory(catSection)
 })

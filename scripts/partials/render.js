@@ -1,15 +1,14 @@
 const templates = require('./templates')
 const data = require('./data')
 
-
 const headerJS = () => {
   // Get all "navbar-burger" elements
-  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0)
+  const navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0)
 
   // Check if there are any navbar burgers
-  if ($navbarBurgers.length > 0) {
+  if (navbarBurgers.length > 0) {
     // Add a click event on each of them
-    $navbarBurgers.forEach(el => {
+    navbarBurgers.forEach(el => {
       el.addEventListener('click', () => {
         // Get the target from the "data-target" attribute
         const target = el.dataset.target;
@@ -32,16 +31,19 @@ const showCard = (container) => {
 const handleRemove = (deleter) => {
   for (d of deleter) {
     d.addEventListener('click', (e) => {
+      // find parent to be deleted
       const target = e.target.parentNode
-      target.remove()
-      const stories = document.querySelector('#stories')
+      target.remove() // delete it!
       const cardId = target.getAttribute('data-id')
       const story = data.cards.find(story => story.id === cardId)
       const index = data.cards.indexOf(story)
 
       if (index >= 0) {
         data.cards.splice(index, 1)
+
+        const stories = document.querySelector('#stories')
         stories.innerHTML = templates.storyValue(data.cards)
+
         const del = document.querySelectorAll('a.fa-times')
         handleRemove(del)
       }

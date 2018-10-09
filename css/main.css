@@ -6453,38 +6453,39 @@ a {
     color: #00d1b2;
     line-height: 1.5rem; }
 
-main.section .how-to {
-  border: 1px solid #dbdbdb;
-  margin-bottom: 1.5rem;
-  padding: 1rem; }
-
-main.section .box {
-  box-shadow: none;
-  margin-bottom: 1rem;
-  min-height: 200px;
-  position: relative; }
-  main.section .box p {
-    color: #dbdbdb;
-    font-size: 1.3rem;
-    left: 0;
-    line-height: 2rem;
-    position: absolute;
-    right: 0;
-    bottom: 30%; }
-  main.section .box.category:not(.new) {
-    border-color: #00d1b2;
-    border-width: 1px;
-    border-style: solid; }
-  main.section .box.new {
-    border-color: #dbdbdb;
-    border-width: 1px;
-    border-style: solid; }
-  main.section .box .subtitle {
-    border-radius: 3px 3px 0 0;
-    font-weight: 300;
-    padding: .5rem; }
-    main.section .box .subtitle i {
-      font-size: 1rem; }
+main.section {
+  height: 100vh; }
+  main.section .how-to {
+    border: 1px solid #dbdbdb;
+    margin-bottom: 1.5rem;
+    padding: 1rem; }
+  main.section .box {
+    box-shadow: none;
+    margin-bottom: 1rem;
+    min-height: 200px;
+    position: relative; }
+    main.section .box p {
+      color: #dbdbdb;
+      font-size: 1.3rem;
+      left: 0;
+      line-height: 2rem;
+      position: absolute;
+      right: 0;
+      bottom: 30%; }
+    main.section .box.category:not(.new) {
+      border-color: #00d1b2;
+      border-width: 1px;
+      border-style: solid; }
+    main.section .box.new {
+      border-color: #dbdbdb;
+      border-width: 1px;
+      border-style: solid; }
+    main.section .box .subtitle {
+      border-radius: 3px 3px 0 0;
+      font-weight: 300;
+      padding: .5rem; }
+      main.section .box .subtitle i {
+        font-size: 1rem; }
 
 .storycard {
   border-color: #dbdbdb;
@@ -6523,7 +6524,7 @@ aside.sidebar .storyline {
   font-weight: 300;
   letter-spacing: -1px;
   line-height: 1.5;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
   text-align: center; }
 
 aside.sidebar .story {
