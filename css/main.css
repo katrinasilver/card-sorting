@@ -6436,23 +6436,16 @@ a {
 
 .create {
   color: #dbdbdb;
-  display: block;
-  font-size: 1.3rem;
-  font-weight: 400;
   margin-bottom: 1rem;
-  height: 120px;
   transition: .2s ease;
-  white-space: inherit;
   width: 100%; }
-  .create:hover {
-    border-color: #00d1b2;
-    color: #009e86;
-    transition: .2s ease; }
-  .create i {
-    font-family: 'Fontawesome';
-    font-size: 2rem;
-    font-weight: 300;
-    margin-top: 1rem; }
+  .create .submit {
+    color: #00d1b2;
+    font-size: 1.2rem;
+    margin-top: .5rem;
+    width: 100%; }
+    .create .submit:hover {
+      transition: .2s ease; }
   .create p {
     color: #00d1b2;
     line-height: 1.5rem; }
@@ -6494,27 +6487,40 @@ aside.sidebar .create-story {
   margin-bottom: 2rem; }
 
 aside.sidebar .stories {
-  border-color: #dbdbdb;
-  border-width: 1px;
-  border-style: solid;
   border-left: 0;
   border-right: 0;
   max-height: 500px;
   overflow-y: scroll; }
 
+aside.sidebar .storyline, aside.sidebar .storycard::placeholder {
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: -1px;
+  line-height: 1.5rem;
+  padding: 1rem;
+  text-align: center; }
+
+aside.sidebar .storycard {
+  border-color: #dbdbdb;
+  border-width: 1px;
+  border-style: solid;
+  border-width: 0 0 1px;
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1;
+  outline: none;
+  resize: none;
+  text-align: center;
+  width: 100%; }
+  aside.sidebar .storycard::placeholder {
+    color: #dbdbdb; }
+
 aside.sidebar .story {
   border-radius: 3px;
   margin: 1rem auto;
   padding: .5rem;
-  width: 90%; }
-  aside.sidebar .story .storyline {
-    font-size: 1rem;
-    height: 60px;
-    outline: none;
-    resize: none;
-    width: 100%; }
+  width: 95%; }
   aside.sidebar .story a {
-    display: inline-block;
     float: left;
     line-height: 1rem;
     margin: 5px 5px 10px; }

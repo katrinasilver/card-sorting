@@ -1,6 +1,5 @@
 const templates = require('./templates')
 const data = require('./data')
-// const shortId = require('short-id')
 
 
 const headerJS = () => {

@@ -1,9 +1,9 @@
 const cardForm = () => {
   return `
-    <form>
-      <textarea class="storyline" name="storycard" placeholder="Type a task card for sorting" maxlength="100" required></textarea>
-      <input type="submit" class="fas fa-check" value="Add">
-    </form>
+  <form class="create">
+    <input type="text" id="storycard" class="storycard" name="storycard" placeholder="Type a task card for sorting" maxlength="80" autocomplete="off" required>
+    <input type="submit" id="submit" name="submit" class="submit button is-primary is-outlined" value="Add a Story Card">
+  </form>
   `
 }
 
@@ -12,7 +12,7 @@ const storyCard = (value, id) => {
     <div class="story card" data-id="${id}">
       <a class="fas fa-grip-vertical"></a>
       <a class="fas fa-times"></a>
-      <div class="storyline"required r>${value}</div>
+      <div class="storyline">${value}</div>
     </div>
   `
 }
