@@ -24,24 +24,10 @@ const headerJS = () => {
 
 const fillOutCard = (container) => container.innerHTML = templates.cardForm()
 
-const showAll = (container) => {
-  const cards = data.map(card => templates.storyCard(card.text, card.id)).join('')
+const showCard = (container) => {
+  const cards = data.cards.map(card => templates.storyCard(card.text, card.id)).join('')
   container.innerHTML = cards
 }
-
-const addCategory = (container) => {
-  let category = templates.cardCategory()
-  container.innerHTML += category;
-}
-
-// const createCard = (container) => {
-  // data.storyFormat.push({ id: shortId.generate(), text: '', readonly: '' })
-  // container.innerHTML = templates.storyValue(data.storyFormat)
-
-  // const del = document.querySelectorAll('a.fa-times')
-  // handleRemove(del)
-// }
-
 
 const handleRemove = (deleter) => {
   for (d of deleter) {
@@ -63,6 +49,13 @@ const handleRemove = (deleter) => {
   }
 }
 
+const fillOutCategory = (container) => container.innerHTML = templates.catForm()
+
+const showCategory = (container) => {
+  const cats = data.categories.map(cats => templates.cardCategory(cats.text, cats.id)).join('')
+  container.innerHTML = cats
+}
+
 module.exports = {
-  headerJS, fillOutCard, showAll, addCategory, handleRemove
+  headerJS, fillOutCard, showCard, handleRemove, fillOutCategory, showCategory
 }

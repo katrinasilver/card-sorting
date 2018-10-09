@@ -6439,11 +6439,14 @@ a {
   margin-bottom: 1rem;
   transition: .2s ease;
   width: 100%; }
+  .create.category {
+    display: flex; }
   .create .submit {
     color: #00d1b2;
     font-size: 1.2rem;
-    margin-top: .5rem;
-    width: 100%; }
+    margin-top: .5rem; }
+    .create .submit[name="cardSubmit"] {
+      width: 100%; }
     .create .submit:hover {
       transition: .2s ease; }
   .create p {
@@ -6483,6 +6486,29 @@ main.section .box {
     main.section .box .subtitle i {
       font-size: 1rem; }
 
+.storycard {
+  border-color: #dbdbdb;
+  border-width: 1px;
+  border-style: solid;
+  border-width: 0 0 1px;
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: -1px;
+  line-height: 2;
+  margin-right: 1rem;
+  outline: none;
+  resize: none;
+  text-align: center;
+  width: 100%; }
+  .storycard::placeholder {
+    color: #dbdbdb;
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: -1px;
+    line-height: 2;
+    padding: 1rem;
+    text-align: center; }
+
 aside.sidebar .create-story {
   margin-bottom: 2rem; }
 
@@ -6492,28 +6518,13 @@ aside.sidebar .stories {
   max-height: 500px;
   overflow-y: scroll; }
 
-aside.sidebar .storyline, aside.sidebar .storycard::placeholder {
+aside.sidebar .storyline {
   font-size: 1.2rem;
   font-weight: 300;
   letter-spacing: -1px;
-  line-height: 1.5rem;
+  line-height: 1.5;
   padding: 1rem;
   text-align: center; }
-
-aside.sidebar .storycard {
-  border-color: #dbdbdb;
-  border-width: 1px;
-  border-style: solid;
-  border-width: 0 0 1px;
-  font-size: 1.2rem;
-  font-weight: 300;
-  line-height: 1;
-  outline: none;
-  resize: none;
-  text-align: center;
-  width: 100%; }
-  aside.sidebar .storycard::placeholder {
-    color: #dbdbdb; }
 
 aside.sidebar .story {
   border-radius: 3px;

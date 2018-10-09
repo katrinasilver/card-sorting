@@ -31,11 +31,18 @@ a {
   transition: .2s ease;
   width: 100%;
 
+  &.category {
+    display: flex;
+  }
+
   .submit {
     color: $primary;
     font-size: 1.2rem;
     margin-top: .5rem;
-    width: 100%;
+
+    &[name = "cardSubmit"] {
+      width: 100%;
+    }
 
     &:hover {
       transition: .2s ease;
@@ -92,6 +99,30 @@ main.section {
   }
 }
 
+.storycard {
+  @include border(1px, solid, $grey-lighter);
+  border-width: 0 0 1px;
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: -1px;
+  line-height: 2;
+  margin-right: 1rem;
+  outline: none;
+  resize: none;
+  text-align: center;
+  width: 100%;
+
+  &::placeholder {
+    color: $grey-lighter;
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: -1px;
+    line-height: 2;
+    padding: 1rem;
+    text-align: center;
+  }
+}
+
 aside.sidebar {
 
   .create-story {
@@ -109,26 +140,9 @@ aside.sidebar {
     font-size: 1.2rem;
     font-weight: 300;
     letter-spacing: -1px;
-    line-height: 1.5rem;
+    line-height: 1.5;
     padding: 1rem;
     text-align: center;
-  }
-
-  .storycard {
-    @include border(1px, solid, $grey-lighter);
-    border-width: 0 0 1px;
-    font-size: 1.2rem;
-    font-weight: 300;
-    line-height: 1;
-    outline: none;
-    resize: none;
-    text-align: center;
-    width: 100%;
-
-    &::placeholder {
-      @extend .storyline;
-      color: $grey-lighter;
-    }
   }
 
   .story {

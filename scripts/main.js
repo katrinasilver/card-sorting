@@ -11,29 +11,35 @@ render.fillOutCard(storyForm)
 
 // Show stories section
 const stories = document.querySelector('#stories')
-render.showAll(stories)
+render.showCard(stories)
 
 // Show the new card in stories section
-const form = document.querySelector('form')
-form.addEventListener('submit', (e) => {
+const form1 = document.querySelector('#card')
+form1.addEventListener('submit', (e) => {
   e.preventDefault()
   let val = {
     "text": e.target.storycard.value,
     "id": shortId.generate()
   }
-  data.unshift(val)
-  render.showAll(stories)
+  data.cards.unshift(val)
+  render.showCard(stories)
 
   //Delete a card
   const del = document.querySelectorAll('a.fa-times')
   render.handleRemove(del)
 })
 
+// Create a Category
+const categoryForm = document.querySelector('#create-category')
+render.fillOutCategory(categoryForm)
 
-
-// Create an instance of card category
-const addCategory = document.querySelector('.create.category.button')
-addCategory.addEventListener('click', (e) => {
-  const category = document.querySelector('.story-categories')
-  render.addCategory(category)
+const form2 = document.querySelector('#category')
+form2.addEventListener('submit', (e) => {
+  e.preventDefault()
+  let val = {
+    "text": e.target.catcard.value,
+    "id": shortId.generate()
+  }
+  data.categories.unshift(val)
+  render.showCategory(document.querySelector('.story-categories'))
 })
