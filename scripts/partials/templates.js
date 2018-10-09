@@ -18,7 +18,7 @@ const storyCard = (value, id) => {
 }
 
 const storyValue = (cardVal) => {
-  return cardVal.map(card => cardForm(card.text, card.id, card.readonly)).join('\n')
+  return cardVal.map(card => storyCard(card.text, card.id, card.readonly)).join('\n')
 }
 
 const cardCategory = () => {

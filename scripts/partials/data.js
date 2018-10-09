@@ -1,6 +1,2 @@
 module.exports = [
-  // {
-  //   "text": "",
-  //   "id" : ""
-  // }
 ]

@@ -1,7 +1,6 @@
 const templates = require('./templates')
 const data = require('./data')
 // const shortId = require('short-id')
-// const stories = document.querySelector('#stories')
 
 
 const headerJS = () => {
@@ -36,12 +35,7 @@ const addCategory = (container) => {
   container.innerHTML += category;
 }
 
-const handleRemove = (deleter) => {
-  const target = e.target.parentNode
-}
-
 // const createCard = (container) => {
-
   // data.storyFormat.push({ id: shortId.generate(), text: '', readonly: '' })
   // container.innerHTML = templates.storyValue(data.storyFormat)
 
@@ -50,28 +44,26 @@ const handleRemove = (deleter) => {
 // }
 
 
-// const handleRemove = (deleter) => {
-//   for (d of deleter) {
-//     d.addEventListener('click', (e) => {
-//       const target = e.target.parentNode
-//       const cardId = target.getAttribute('data-id')
-//       const story = data.storyFormat.find(story => story.id === cardId)
-//       const index = data.storyFormat.indexOf(story)
+const handleRemove = (deleter) => {
+  for (d of deleter) {
+    d.addEventListener('click', (e) => {
+      const target = e.target.parentNode
+      target.remove()
+      const stories = document.querySelector('#stories')
+      const cardId = target.getAttribute('data-id')
+      const story = data.find(story => story.id === cardId)
+      const index = data.indexOf(story)
 
-//       if (index >= 0) {
-//         data.storyFormat.splice(index, 1)
-//         stories.innerHTML = templates.storyValue(data.storyFormat)
-//         const del = document.querySelectorAll('a.fa-times')
-//         handleRemove(del)
-//       }
-//     })
-//   }
-// }
-
-// const saveCard = (saver) => {
-
-// }
+      if (index >= 0) {
+        data.splice(index, 1)
+        stories.innerHTML = templates.storyValue(data)
+        const del = document.querySelectorAll('a.fa-times')
+        handleRemove(del)
+      }
+    })
+  }
+}
 
 module.exports = {
-  headerJS, fillOutCard, showAll, handleRemove, addCategory
+  headerJS, fillOutCard, showAll, addCategory, handleRemove
 }
