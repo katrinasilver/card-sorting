@@ -1,5 +1,6 @@
 const templates = require('./templates')
 const data = require('./data')
+const shortId = require('short-id')
 
 const headerJS = () => {
   // Get all "navbar-burger" elements
@@ -27,11 +28,13 @@ const showCard = (container) => {
   const cards = data.cards.map(card => templates.storyCard(card.text, card.id)).join('')
   container.innerHTML = cards
 
-  $(function () {
-    $('.story.card').draggable()
-    $('#stories').droppable({
-      accept: '.story.card'
-    })
+  // drag and drop function
+  $('.story.card').draggable({
+    drag: (event, ui) => { console.log('here') }
+  })
+  $('#stories').droppable({
+    accept: '.story.card',
+    drop: (event, ui) => { console.log('here') }
   })
 }
 
@@ -65,13 +68,26 @@ const showCategory = (container) => {
   const cats = data.categories.map(cats => templates.cardCategory(cats.text, cats.id)).join('')
   container.innerHTML = cats
 
-  $(function () {
-    $('.drag-category').droppable({
-      accept: '.story.card'
-    })
+  //drag function
+  $('.drag-category').droppable({
+    accept: '.story.card',
+    drop: function (event, ui) {
+      const cardId = ui.draggable[0].getAttribute('data-id')
+      const content = ui.draggable
+      for (let i = 0; i < content.length; i++) {
+        // const insert = data.sorted.map(contents => templates.dragCards(contents.id, contents.text))
+        $(ui.draggable[i]).remove()
+        $(this).append(`<li data-id="card-${cardId}">${content[i].textContent}</li>`)
+      }
+    }
   })
 }
 
+const showSorted = (container) => {
+  data.sorted.push({ id: shortId.generate(), text: '', category: '', catId: `cat-${shortId.generate()}`  })
+  container.innerHTML = templates.sortedCards(data.sorted)
+}
+
 module.exports = {
-  headerJS, fillOutCard, showCard, handleRemove, fillOutCategory, showCategory
+  headerJS, fillOutCard, showCard, handleRemove, fillOutCategory, showCategory, showSorted
 }

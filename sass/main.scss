@@ -2,10 +2,6 @@
 @import "../node_modules/bulma/bulma.sass";
 @import "./utilities";
 
-.hide {
-  display: none;
-}
-
 a {
   color: $primary;
   transition: .2s ease;
@@ -102,6 +98,12 @@ main.section {
       }
     }
   }
+}
+
+.drag-category {
+  display: block;
+  min-height: 150px;
+  padding: 1rem;
 }
 
 .storycard {

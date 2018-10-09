@@ -31,9 +31,9 @@ const catForm = () => {
   `
 }
 
-const cardCategory = (category, id) => {
+const cardCategory = (category, catId) => {
   return `
-    <div class="box category is-paddingless" data-id="${id}">
+    <div class="box category is-paddingless" data-id="cat-${catId}">
       <h3 class="subtitle is-4 has-text-centered has-text-white has-background-primary">
         ${category}
       </h3>
@@ -45,9 +45,38 @@ const cardCategory = (category, id) => {
 }
 
 const catValue = (catVal) => {
-  return catVal.map(cat => cardCategory(cat.category, cat.id)).join('\n')
+  return catVal.map(cat => cardCategory(cat.category, cat.catId)).join('\n')
+}
+
+// Sorted Cards in Categories
+const sortedCards = (category, catId, value, id) => {
+  return
+  `<div class="box category is-paddingless" data-id="cat-${catId}">
+      <h3 class="subtitle is-4 has-text-centered has-text-white has-background-primary">
+        ${category}
+      </h3>
+      <div class="drag-category">
+        <div id="card-${id}" class="story card" data-id="${id}">
+          <a class="fas fa-times"></a>
+          <div class="storyline">${value}</div>
+        </div>
+      </div>
+    </div>
+  `
+}
+
+const sortValue = (sortVal) => {
+  return sortVal.map(sort => sortedCards(sort.category, sort.value, sort.id, sort.catId))
+}
+
+const dragCards = (value, id) => {
+  return `
+    <div id="card-${id}" class="story card" data-id="${id}">
+      <div class="storyline">${value}</div>
+    </div>
+  `
 }
 
 module.exports = {
-  cardForm, storyCard, storyValue, cardCategory, catForm, catValue
+  cardForm, storyCard, storyValue, cardCategory, catForm, catValue, sortedCards, sortValue, dragCards
 }

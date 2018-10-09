@@ -6419,9 +6419,6 @@ label.panel-block {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem; }
 
-.hide {
-  display: none; }
-
 a {
   color: #00d1b2;
   transition: .2s ease; }
@@ -6489,6 +6486,11 @@ main.section {
       padding: .5rem; }
       main.section .box .subtitle i {
         font-size: 1rem; }
+
+.drag-category {
+  display: block;
+  min-height: 150px;
+  padding: 1rem; }
 
 .storycard {
   border-color: #dbdbdb;

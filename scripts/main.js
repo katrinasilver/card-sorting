@@ -30,13 +30,20 @@ const categoryForm = document.querySelector('#create-category')
 render.fillOutCategory(categoryForm)
 
 const form2 = document.querySelector('#category')
+const catSection = document.querySelector('.story-categories')
 form2.addEventListener('submit', (e) => {
   e.preventDefault()
   const ct = {
     "text": e.target.catcard.value,
     "id": shortId.generate()
   }
+
   data.categories.unshift(ct)
-  const catSection = document.querySelector('.story-categories')
   render.showCategory(catSection)
+})
+
+const test = document.querySelector('.navbar-item .button')
+test.addEventListener('click', () => {
+  // data.categories.unshift(st)
+  render.showSorted(catSection)
 })
