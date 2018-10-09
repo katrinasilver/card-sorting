@@ -26,11 +26,19 @@ const fillOutCard = (container) => container.innerHTML = templates.cardForm()
 const showCard = (container) => {
   const cards = data.cards.map(card => templates.storyCard(card.text, card.id)).join('')
   container.innerHTML = cards
+
+  $(function () {
+    $('.story.card').draggable()
+    $('#stories').droppable({
+      accept: '.story.card'
+    })
+  })
 }
 
 const handleRemove = (deleter) => {
   for (d of deleter) {
     d.addEventListener('click', (e) => {
+      e.preventDefault()
       // find parent to be deleted
       const target = e.target.parentNode
       target.remove() // delete it!
@@ -56,6 +64,12 @@ const fillOutCategory = (container) => container.innerHTML = templates.catForm()
 const showCategory = (container) => {
   const cats = data.categories.map(cats => templates.cardCategory(cats.text, cats.id)).join('')
   container.innerHTML = cats
+
+  $(function () {
+    $('.drag-category').droppable({
+      accept: '.story.card'
+    })
+  })
 }
 
 module.exports = {

@@ -2,6 +2,10 @@
 @import "../node_modules/bulma/bulma.sass";
 @import "./utilities";
 
+.hide {
+  display: none;
+}
+
 a {
   color: $primary;
   transition: .2s ease;
@@ -56,7 +60,7 @@ a {
 }
 
 main.section {
-  height: 100vh;
+  min-height: 100vh;
 
   .how-to {
     border: 1px solid $grey-lighter;
@@ -130,13 +134,6 @@ aside.sidebar {
     margin-bottom: 2rem;
   }
 
-  .stories {
-    border-left: 0;
-    border-right: 0;
-    max-height: 500px;
-    overflow-y: scroll;
-  }
-
   .storyline {
     font-size: 1.2rem;
     font-weight: 300;
@@ -148,19 +145,16 @@ aside.sidebar {
 
   .story {
     border-radius: 3px;
+    cursor: move;
     margin: 1rem auto;
     padding: .5rem;
     width: 95%;
+    z-index: 100;
 
     a {
       float: left;
       line-height: 1rem;
       margin: 5px 5px 10px;
-
-      &.fa-grip-vertical {
-        cursor: move;
-        float: right;
-      }
     }
   }
 }

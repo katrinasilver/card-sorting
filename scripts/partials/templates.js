@@ -10,8 +10,7 @@ const cardForm = () => {
 
 const storyCard = (value, id) => {
   return `
-    <div class="story card" data-id="${id}">
-      <a class="fas fa-grip-vertical"></a>
+    <div id="card-${id}" class="story card" data-id="${id}">
       <a class="fas fa-times"></a>
       <div class="storyline">${value}</div>
     </div>
@@ -38,7 +37,9 @@ const cardCategory = (category, id) => {
       <h3 class="subtitle is-4 has-text-centered has-text-white has-background-primary">
         ${category}
       </h3>
+      <div class="drag-category">
         <p class="has-text-centered">Drop Story Cards Here!</p>
+      </div>
     </div>
   `
 }

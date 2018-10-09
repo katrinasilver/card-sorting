@@ -13,11 +13,11 @@ render.fillOutCard(storyForm)
 const form1 = document.querySelector('#card')
 form1.addEventListener('submit', (e) => {
   e.preventDefault()
-  let val = {
+  const cd = {
     "text": e.target.storycard.value,
     "id": shortId.generate()
   }
-  data.cards.unshift(val)
+  data.cards.unshift(cd)
   render.showCard(document.querySelector('#stories'))
 
   //Delete a card
@@ -32,11 +32,11 @@ render.fillOutCategory(categoryForm)
 const form2 = document.querySelector('#category')
 form2.addEventListener('submit', (e) => {
   e.preventDefault()
-  let val = {
+  const ct = {
     "text": e.target.catcard.value,
     "id": shortId.generate()
   }
-  data.categories.unshift(val)
+  data.categories.unshift(ct)
   const catSection = document.querySelector('.story-categories')
   render.showCategory(catSection)
 })
