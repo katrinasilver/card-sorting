@@ -36,12 +36,12 @@ const handleRemove = (deleter) => {
       target.remove()
       const stories = document.querySelector('#stories')
       const cardId = target.getAttribute('data-id')
-      const story = data.find(story => story.id === cardId)
-      const index = data.indexOf(story)
+      const story = data.cards.find(story => story.id === cardId)
+      const index = data.cards.indexOf(story)
 
       if (index >= 0) {
-        data.splice(index, 1)
-        stories.innerHTML = templates.storyValue(data)
+        data.cards.splice(index, 1)
+        stories.innerHTML = templates.storyValue(data.cards)
         const del = document.querySelectorAll('a.fa-times')
         handleRemove(del)
       }
