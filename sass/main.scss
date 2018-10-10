@@ -58,6 +58,13 @@ a {
 main.section {
   min-height: 100vh;
 
+  .story-categories {
+    display: flex;
+    flex-flow: wrap-reverse;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   .how-to {
     border: 1px solid $grey-lighter;
     margin-bottom: 1.5rem;
@@ -80,12 +87,14 @@ main.section {
       bottom: 30%;
     }
 
-    &.category:not(.new) {
+    &.category {
       @include border(1px, solid, $primary);
-    }
+      height: auto;
+      width: 49%;
 
-    &.new {
-      @include border(1px, solid, $grey-lighter)
+      &:nth-child(odd) {
+        margin-right: 1rem;
+      }
     }
 
     .subtitle {
@@ -101,7 +110,6 @@ main.section {
 }
 
 .drag-category {
-  display: block;
   min-height: 150px;
   padding: 1rem;
 }

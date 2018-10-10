@@ -1,6 +1,6 @@
 const templates = require('./templates')
 const data = require('./data')
-const shortId = require('short-id')
+// const shortId = require('short-id')
 
 const headerJS = () => {
   // Get all "navbar-burger" elements
@@ -22,22 +22,19 @@ const headerJS = () => {
   }
 }
 
+// Render the Story Card Form
 const fillOutCard = (container) => container.innerHTML = templates.cardForm()
 
+// Render Story Card
 const showCard = (container) => {
   const cards = data.cards.map(card => templates.storyCard(card.text, card.id)).join('')
   container.innerHTML = cards
 
-  // drag and drop function
-  $('.story.card').draggable({
-    drag: (event, ui) => { console.log('here') }
-  })
-  $('#stories').droppable({
-    accept: '.story.card',
-    drop: (event, ui) => { console.log('here') }
-  })
+  // Drag and drop function
+  $('.story.card').draggable()
 }
 
+// Remove a Story Card
 const handleRemove = (deleter) => {
   for (d of deleter) {
     d.addEventListener('click', (e) => {
@@ -62,32 +59,41 @@ const handleRemove = (deleter) => {
   }
 }
 
+// Show Category Form
 const fillOutCategory = (container) => container.innerHTML = templates.catForm()
 
+// Show Category Panel
 const showCategory = (container) => {
   const cats = data.categories.map(cats => templates.cardCategory(cats.text, cats.id)).join('')
   container.innerHTML = cats
 
-  //drag function
+  $('.story-categories').sortable()
+  $('.story-categories').disableSelection()
+  //Drag function
   $('.drag-category').droppable({
-    accept: '.story.card',
     drop: function (event, ui) {
-      const cardId = ui.draggable[0].getAttribute('data-id')
-      const content = ui.draggable
-      for (let i = 0; i < content.length; i++) {
-        // const insert = data.sorted.map(contents => templates.dragCards(contents.id, contents.text))
-        $(ui.draggable[i]).remove()
-        $(this).append(`<li data-id="card-${cardId}">${content[i].textContent}</li>`)
+      const cards = ui.draggable
+      const returnC = document.querySelectorAll('.button.storyline')
+      for (let i = 0; i < cards.length; i++) {
+        const cardId = ui.draggable[i].getAttribute('data-id')
+        $(cards[i]).remove()
+        console.log(cards[i]);
+        $(this).append(templates.sortedCards(cardId, cards[i].textContent))
+
+        for (let r of returnC) {
+          $(r).click(() => {
+            $('#stories').append(templates.storyCard(r.textContent, cardId))
+            $(r).remove()
+            const del = document.querySelectorAll('a.fa-times')
+            handleRemove(del)
+            $('.story.card').draggable()
+          })
+        }
       }
     }
   })
 }
 
-const showSorted = (container) => {
-  data.sorted.push({ id: shortId.generate(), text: '', category: '', catId: `cat-${shortId.generate()}`  })
-  container.innerHTML = templates.sortedCards(data.sorted)
-}
-
 module.exports = {
-  headerJS, fillOutCard, showCard, handleRemove, fillOutCategory, showCategory, showSorted
+  headerJS, fillOutCard, showCard, handleRemove, fillOutCategory, showCategory
 }

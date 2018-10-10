@@ -25,7 +25,7 @@ const storyValue = (cardVal) => {
 const catForm = () => {
   return `
   <form id="category" class="create category">
-    <input type="text" id="catpanel" class="storycard" name="catcard" placeholder="Type a Category Name" maxlength="20" autocomplete="off" required>
+    <input type="text" id="catpanel" class="storycard" name="catcard" placeholder="Type a Category Name" maxlength="30" autocomplete="off" required>
     <input type="submit" id="catsubmit" name="catSubmit" class="submit button is-primary is-outlined" value="Add a Category">
   </form>
   `
@@ -49,18 +49,9 @@ const catValue = (catVal) => {
 }
 
 // Sorted Cards in Categories
-const sortedCards = (category, catId, value, id) => {
-  return
-  `<div class="box category is-paddingless" data-id="cat-${catId}">
-      <h3 class="subtitle is-4 has-text-centered has-text-white has-background-primary">
-        ${category}
-      </h3>
-      <div class="drag-category">
-        <div id="card-${id}" class="story card" data-id="${id}">
-          <a class="fas fa-times"></a>
-          <div class="storyline">${value}</div>
-        </div>
-      </div>
+const sortedCards = (id, value) => {
+  return `
+    <div data-id="sorted-${id}" class="button storyline">${value}
     </div>
   `
 }
@@ -69,14 +60,6 @@ const sortValue = (sortVal) => {
   return sortVal.map(sort => sortedCards(sort.category, sort.value, sort.id, sort.catId))
 }
 
-const dragCards = (value, id) => {
-  return `
-    <div id="card-${id}" class="story card" data-id="${id}">
-      <div class="storyline">${value}</div>
-    </div>
-  `
-}
-
 module.exports = {
-  cardForm, storyCard, storyValue, cardCategory, catForm, catValue, sortedCards, sortValue, dragCards
+  cardForm, storyCard, storyValue, cardCategory, catForm, catValue, sortedCards, sortValue
 }

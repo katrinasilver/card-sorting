@@ -6455,6 +6455,11 @@ a {
 
 main.section {
   min-height: 100vh; }
+  main.section .story-categories {
+    display: flex;
+    flex-flow: wrap-reverse;
+    flex-wrap: wrap;
+    justify-content: center; }
   main.section .how-to {
     border: 1px solid #dbdbdb;
     margin-bottom: 1.5rem;
@@ -6472,14 +6477,14 @@ main.section {
       position: absolute;
       right: 0;
       bottom: 30%; }
-    main.section .box.category:not(.new) {
+    main.section .box.category {
       border-color: #00d1b2;
       border-width: 1px;
-      border-style: solid; }
-    main.section .box.new {
-      border-color: #dbdbdb;
-      border-width: 1px;
-      border-style: solid; }
+      border-style: solid;
+      height: auto;
+      width: 49%; }
+      main.section .box.category:nth-child(odd) {
+        margin-right: 1rem; }
     main.section .box .subtitle {
       border-radius: 3px 3px 0 0;
       font-weight: 300;
@@ -6488,7 +6493,6 @@ main.section {
         font-size: 1rem; }
 
 .drag-category {
-  display: block;
   min-height: 150px;
   padding: 1rem; }
 
