@@ -22,12 +22,50 @@ const headerJS = () => {
 }
 
 // Render the Story Card Form
-const fillOutCard = (container) => container.innerHTML = templates.cardForm()
+const fillOutCard = (container) => {
+    container.innerHTML = templates.cardForm()
+}
 
 // Render Story Card
 const showCard = (container) => {
   const cards = data.cards.map(card => templates.storyCard(card.text, card.id)).join('')
   container.innerHTML = cards
+}
+
+// Show Category Form
+const fillOutCategory = (container) => container.innerHTML = templates.catForm()
+
+// Show Category Panel
+const showCategory = (container) => {
+  const cats = data.categories.map(cats => templates.cardCategory(cats.text, cats.id)).join('')
+  container.innerHTML = cats
+}
+
+const dragDrop = (drag, drop) => {
+
+  // Drag and drop function
+  $(drag).draggable()
+
+  //Drag function
+  $(drop).droppable({
+    accept: drag,
+    drop: function (event, ui) {
+      const cards = ui.draggable
+      const cardId = ui.draggable[0].getAttribute('data-id')
+      for (let card of cards) {
+        $(card).remove()
+        // console.log(cardId);
+        $(this).append(templates.sortedCards(cardId, card.innerText))
+      }
+
+      const sortedCard = document.querySelector(`#sorted-${cardId}`)
+      sortedCard.addEventListener('click', (e) => {
+        $('#stories').append(templates.storyCard(e.target.textContent, e.target.cardId))
+        $(e.target).remove()
+        $(drag).draggable()
+      })
+    }
+  })
 }
 
 // Remove a Story Card
@@ -53,48 +91,6 @@ const handleRemove = (deleter) => {
       }
     })
   }
-}
-
-// Show Category Form
-const fillOutCategory = (container) => container.innerHTML = templates.catForm()
-
-// Show Category Panel
-const showCategory = (container) => {
-  const cats = data.categories.map(cats => templates.cardCategory(cats.text, cats.id)).join('')
-  container.innerHTML = cats
-}
-
-
-const dragDrop = (drag, drop) => {
-
-  // Drag and drop function
-  $(drag).draggable()
-
-  //Drag function
-  $(drop).droppable({
-    accept: drag,
-    drop: function (event, ui) {
-      const cards = ui.draggable
-      const cardId = ui.draggable[0].getAttribute('data-id')
-      for (let card of cards) {
-        $(card).remove()
-        console.log(card.innerText);
-        $(this).append(templates.sortedCards(cardId, card.innerText))
-      }
-
-      const returnCard = document.querySelectorAll('.button.storyline')
-      returnCard.forEach(r => {
-        $(r).click(() => {
-          $('#stories').append(templates.storyCard(r.innerText, cardId))
-          $(r).remove()
-          $(drag).draggable()
-
-          const del = document.querySelectorAll('a.fa-times')
-          handleRemove(del)
-        })
-      })
-    }
-  })
 }
 
 module.exports = {

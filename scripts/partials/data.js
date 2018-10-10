@@ -1,5 +1,3 @@
-const shortId = require('short-id')
-
 module.exports.cards = [
 ]
 

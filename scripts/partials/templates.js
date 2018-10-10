@@ -51,7 +51,7 @@ const catValue = (catVal) => {
 // Sorted Cards in Categories
 const sortedCards = (id, value) => {
   return `
-    <div data-id="sorted-${id}" class="button storyline">${value}
+    <div id="sorted-${id}" class="button storyline">${value}
     </div>
   `
 }
