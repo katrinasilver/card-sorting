@@ -18,53 +18,58 @@
 </head>
 <body>
   <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="/">
-        <h1 class="title has-text-white is-4">Card Sorting Exercise</h1>
-      </a>
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <h1 class="title has-text-white is-4">Card Sorting Exercise</h1>
+        </a>
 
-      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarItems">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarItems">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
 
-    <div id="navbarItems" class="navbar-menu">
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <a class="button is-primary is-medium">Submit Exercise</a>
+      <div id="navbarItems" class="navbar-menu">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <a class="button is-primary is-medium">Submit Exercise</a>
+          </div>
         </div>
       </div>
     </div>
   </nav>
-  <main class="section columns is-clearfix">
-    <!-- Story Cards -->
-    <aside class="sidebar column is-one-quarter-desktop">
-      <div class="create-story">
-          <div id="storyForm">
-            <!-- append form here -->
-          </div>
-      </div>
-      <div id="stories" class="stories">
-        <!-- append stories here -->
-      </div>
-    </aside>
+  <div class="container">
+    <main class="section columns is-clearfix">
+      <!-- Story Cards -->
+      <aside class="sidebar column is-one-quarter-desktop">
+        <div class="create-story">
+            <div id="storyForm">
+              <!-- append form here -->
+            </div>
+        </div>
+        <div id="stories" class="stories">
+          <!-- append stories here -->
+        </div>
+      </aside>
 
-    <section class="main column">
-      <!-- Instructions -->
-      <div class="how-to notification has-background-light has-text-centered has-text-grey">
-        <strong>Instructions:</strong> Create Card Categories below. Drag the Story Cards on the left into the Category that makes sense to you. Don't worry, there are no right or wrong answers!&nbsp;Click the <strong>Submit Exercise</strong> button on the top right when you're done.
-      </div>
-      <!-- Story Categories -->
-      <div id="create-category" class="create-category">
-        <!-- Append Form Here -->
-      </div>
-      <div class="story-categories section is-marginless is-paddingless">
-        <!-- Append Categories Here -->
-      </div>
-    </section>
+      <section class="main column">
+        <!-- Instructions -->
+        <div class="how-to notification has-background-light has-text-centered has-text-grey">
+          <strong>Instructions:</strong> Create Card Categories below. Drag the Story Cards on the left into the Category that makes sense to you. Don't worry, there are no right or wrong answers!&nbsp;Click the <strong>Submit Exercise</strong> button on the top right when you're done.
+        </div>
+        <!-- Story Categories -->
+        <div id="create-category" class="create-category">
+          <!-- Append Form Here -->
+        </div>
+        <div class="story-categories section is-marginless is-paddingless">
+          <!-- Append Categories Here -->
+        </div>
+      </section>
+
   </main>
+  </div>
   <footer class="footer">
     <p class="container has-text-centered">&copy; 2018.
       <a href="https://github.com/katrinasilver" target="_blank">Katrina Agustin</a>

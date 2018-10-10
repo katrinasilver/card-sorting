@@ -6482,7 +6482,7 @@ main.section {
       border-width: 1px;
       border-style: solid;
       height: auto;
-      width: 49%; }
+      width: 48%; }
       main.section .box.category:nth-child(odd) {
         margin-right: 1rem; }
     main.section .box .subtitle {

@@ -1,6 +1,5 @@
 const templates = require('./templates')
 const data = require('./data')
-// const shortId = require('short-id')
 
 const headerJS = () => {
   // Get all "navbar-burger" elements
@@ -29,9 +28,6 @@ const fillOutCard = (container) => container.innerHTML = templates.cardForm()
 const showCard = (container) => {
   const cards = data.cards.map(card => templates.storyCard(card.text, card.id)).join('')
   container.innerHTML = cards
-
-  // Drag and drop function
-  $('.story.card').draggable()
 }
 
 // Remove a Story Card
@@ -66,34 +62,41 @@ const fillOutCategory = (container) => container.innerHTML = templates.catForm()
 const showCategory = (container) => {
   const cats = data.categories.map(cats => templates.cardCategory(cats.text, cats.id)).join('')
   container.innerHTML = cats
+}
 
-  $('.story-categories').sortable()
-  $('.story-categories').disableSelection()
+
+const dragDrop = (drag, drop) => {
+
+  // Drag and drop function
+  $(drag).draggable()
+
   //Drag function
-  $('.drag-category').droppable({
+  $(drop).droppable({
+    accept: drag,
     drop: function (event, ui) {
       const cards = ui.draggable
-      const returnC = document.querySelectorAll('.button.storyline')
-      for (let i = 0; i < cards.length; i++) {
-        const cardId = ui.draggable[i].getAttribute('data-id')
-        $(cards[i]).remove()
-        console.log(cards[i]);
-        $(this).append(templates.sortedCards(cardId, cards[i].textContent))
-
-        for (let r of returnC) {
-          $(r).click(() => {
-            $('#stories').append(templates.storyCard(r.textContent, cardId))
-            $(r).remove()
-            const del = document.querySelectorAll('a.fa-times')
-            handleRemove(del)
-            $('.story.card').draggable()
-          })
-        }
+      const cardId = ui.draggable[0].getAttribute('data-id')
+      for (let card of cards) {
+        $(card).remove()
+        console.log(card.innerText);
+        $(this).append(templates.sortedCards(cardId, card.innerText))
       }
+
+      const returnCard = document.querySelectorAll('.button.storyline')
+      returnCard.forEach(r => {
+        $(r).click(() => {
+          $('#stories').append(templates.storyCard(r.innerText, cardId))
+          $(r).remove()
+          $(drag).draggable()
+
+          const del = document.querySelectorAll('a.fa-times')
+          handleRemove(del)
+        })
+      })
     }
   })
 }
 
 module.exports = {
-  headerJS, fillOutCard, showCard, handleRemove, fillOutCategory, showCategory
+  headerJS, fillOutCard, showCard, handleRemove, fillOutCategory, showCategory, dragDrop
 }

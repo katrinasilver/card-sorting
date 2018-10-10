@@ -18,9 +18,12 @@ form1.addEventListener('submit', (e) => {
   }
   data.cards.unshift(cd)
   render.showCard(document.querySelector('#stories'))
+
   //Delete a card
   const del = document.querySelectorAll('a.fa-times')
   render.handleRemove(del)
+
+  render.dragDrop('.story.card', '.drag-category')
 })
 
 // Create a Category
@@ -37,6 +40,8 @@ form2.addEventListener('submit', (e) => {
   }
   data.categories.unshift(ct)
   render.showCategory(catSection)
+
+  render.dragDrop('.story.card', '.drag-category')
 
   const del = document.querySelectorAll('a.fa-times')
   render.handleRemove(del)
