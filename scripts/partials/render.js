@@ -28,6 +28,11 @@ const fillOutCard = (container) => container.innerHTML = templates.cardForm()
 const showCard = (container) => {
   const cards = data.cards.map(card => templates.storyCard(card.text, card.id)).join('')
   container.innerHTML = cards
+
+  const del = document.querySelectorAll('a.fa-times')
+  handleRemove(del)
+
+  dropCards('.story.card', '.drag-category')
 }
 
 // Show Category Form
@@ -38,6 +43,8 @@ const showCategory = (container) => {
 
   const cats = data.categories.map(cats => templates.cardCategory(cats.text, cats.id)).join('')
   container.innerHTML = cats
+
+  dropCards('.story.card', '.drag-category')
 }
 
 const dropCards = (drag, drop) => {
@@ -63,6 +70,15 @@ const dropCards = (drag, drop) => {
       let catSorted = data.categories[catIdx].cards.map((card) => templates.sortedCards(card.id, card.text)).join('')
       this.innerHTML = catSorted
       $(card).remove()
+
+      // Local Storge Setup
+      const storage = localStorage.getItem('results') || ''
+
+        if (storage.length > 0) {
+          data.categories = JSON.parse(storage)
+          const catSection = document.querySelector('.story-categories')
+          showCategory(catSection)
+        }
     }
   })
 }
@@ -82,16 +98,20 @@ const handleRemove = (deleter) => {
       if (index >= 0) {
         data.cards.splice(index, 1)
 
-        const stories = document.querySelector('#stories')
-        stories.innerHTML = templates.storyValue(data.cards)
+        //Render Cards and Save to Storage
+        showCard(stories)
+        setLocalStorage('cardsData', data.cards)
 
-        const del = document.querySelectorAll('a.fa-times')
-        handleRemove(del)
       }
     })
   }
 }
 
+const setLocalStorage = (dataType, dataSource) => {
+  return localStorage.setItem( dataType, JSON.stringify(dataSource));
+}
+
+
 module.exports = {
-  headerJS, fillOutCard, showCard, handleRemove, fillOutCategory, showCategory, dropCards
+  headerJS, fillOutCard, showCard, handleRemove, fillOutCategory, showCategory, dropCards, setLocalStorage
 }

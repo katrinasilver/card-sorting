@@ -8,6 +8,15 @@ render.headerJS()
 const storyForm = document.querySelector('#storyForm')
 render.fillOutCard(storyForm)
 
+// Get Cards Data and Save to Local Storage
+const stories = document.querySelector('#stories')
+const saveC = localStorage.getItem('cardsData') || '[]'
+
+if (saveC.length > 0) {
+  data.cards = JSON.parse(saveC)
+  render.showCard(stories)
+}
+
 // Show the new card in stories section
 const form1 = document.querySelector('#card')
 form1.addEventListener('submit', (e) => {
@@ -18,27 +27,29 @@ form1.addEventListener('submit', (e) => {
   }
   data.cards.unshift(cd)
 
-  // Show created card
-  const stories = document.querySelector('#stories')
+  //Render Cards and Save to Storage
   render.showCard(stories)
+  render.setLocalStorage('cardsData', data.cards)
 
   // Enable drap and drop
   render.dropCards('.story.card', '.drag-category')
-
-  //Delete a card
-  const del = document.querySelectorAll('a.fa-times')
-  render.handleRemove(del)
 
   form1.reset()
 })
 
 // Create a Category
 const categoryForm = document.querySelector('#create-category')
-const catSection = document.querySelector('.story-categories')
-
 render.fillOutCategory(categoryForm)
 
-// Show the new category in categories section
+// Get Category Data and Save to Local Storage
+const catSection = document.querySelector('.story-categories')
+const saveCT = localStorage.getItem('categoryData') || '[]'
+
+if (saveCT.length > 0) {
+  data.categories = JSON.parse(saveCT)
+  render.showCategory(catSection)
+}
+
 const form2 = document.querySelector('#category')
 form2.addEventListener('submit', (e) => {
   e.preventDefault()
@@ -47,14 +58,18 @@ form2.addEventListener('submit', (e) => {
     "id": shortId.generate(),
     "cards": []
   }
+
   // Show created category
   data.categories.unshift(ct)
+
+  //Render Categories and Save to Storage
   render.showCategory(catSection)
+  render.setLocalStorage('categoryData', data.categories)
 
   // Enable drap and drop
   render.dropCards('.story.card', '.drag-category')
 
-  $('.box.category').draggable()
+  // $('.box.category').draggable()
 
   form2.reset()
 })
