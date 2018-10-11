@@ -35,6 +35,7 @@ const fillOutCategory = (container) => container.innerHTML = templates.catForm()
 
 // Show Category Panel
 const showCategory = (container) => {
+
   const cats = data.categories.map(cats => templates.cardCategory(cats.text, cats.id)).join('')
   container.innerHTML = cats
 }
@@ -54,41 +55,14 @@ const dropCards = (drag, drop) => {
       const idx = data.cards.indexOf(findIndex)
 
       const cty = this.getAttribute('data-cat')
-      const category = data.categories.find(cat => cat.id === cty )
+      const category = data.categories.find(cat => cat.id === cty)
       const catIdx = data.categories.indexOf(category)
 
       data.categories[catIdx].cards.push(findIndex)
       data.cards.splice(idx, 1)
-
       let catSorted = data.categories[catIdx].cards.map((card) => templates.sortedCards(card.id, card.text)).join('')
-      // $(this).append(catSorted)
+      this.innerHTML = catSorted
       $(card).remove()
-
-      const catSection = document.querySelector('.story-categories')
-      catSection.innerHTML = templates.cardCategory(catSorted)
-
-      // Return unwanted cards to card data
-      // const sortedCard = document.querySelector(`#sorted-${cardId}`)
-      // sortedCard.addEventListener('click', (e) => {
-      //   const sortedId = e.target.dataset.sorted
-
-      //   const cid = () => {
-      //     for (let i = 0; i < data.categories[idx].cards.length; i++)      {
-      //       return data.categories[catIdx].cards[i]
-      //     }
-      //   }
-
-      //   const findSorted = data.categories[catIdx].cards[cid()].find(cid => cid === sortedId)
-      //   console.log(findSorted)
-        // let sortIdx = data.cards.indexOf(findSorted)
-        // data.categories.splice(sortIdx, 1)
-
-        // let bar = data.cards[idx].map(() => templates.storyCard(card.text, card.id))
-
-        // $('#stories').append(bar)
-        // $(sortedCard).remove()
-      //   $(drag).draggable()
-      // })
     }
   })
 }

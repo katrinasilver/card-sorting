@@ -54,9 +54,5 @@ form2.addEventListener('submit', (e) => {
   // Enable drap and drop
   render.dropCards('.story.card', '.drag-category')
 
-  //Delete a card
-  // const del = document.querySelectorAll('a.fa-times')
-  // render.handleRemove(del)
-
   form2.reset()
 })
