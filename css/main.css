@@ -6427,8 +6427,8 @@ a {
     transition: .2s ease; }
 
 .navbar .button {
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 300;
   padding: 1rem; }
 
 .navbar .navbar-burger span {
@@ -6437,6 +6437,7 @@ a {
 .create {
   color: #dbdbdb;
   margin-bottom: 1rem;
+  text-align: center;
   transition: .2s ease;
   width: 100%; }
   .create.category {
@@ -6445,13 +6446,16 @@ a {
     color: #00d1b2;
     font-size: 1.2rem;
     margin-top: .5rem; }
-    .create .submit[name="cardSubmit"] {
-      width: 100%; }
     .create .submit:hover {
       transition: .2s ease; }
   .create p {
     color: #00d1b2;
     line-height: 1.5rem; }
+
+.how-to {
+  margin: 1.5rem auto;
+  padding: 1rem 3rem;
+  width: 75%; }
 
 main.section {
   min-height: 100vh; }
@@ -6460,10 +6464,6 @@ main.section {
     flex-flow: wrap-reverse;
     flex-wrap: wrap;
     justify-content: center; }
-  main.section .how-to {
-    border: 1px solid #dbdbdb;
-    margin-bottom: 1.5rem;
-    padding: 1rem; }
   main.section .box {
     box-shadow: none;
     margin-bottom: 1rem;
@@ -6471,7 +6471,7 @@ main.section {
     position: relative; }
     main.section .box p {
       color: #dbdbdb;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       left: 0;
       line-height: 2rem;
       position: absolute;

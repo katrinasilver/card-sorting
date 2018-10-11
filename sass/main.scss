@@ -15,8 +15,8 @@ a {
 .navbar {
 
   .button {
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: 1.2rem;
+    font-weight: 300;
     padding: 1rem;
   }
 
@@ -28,6 +28,7 @@ a {
 .create {
   color: $grey-lighter;
   margin-bottom: 1rem;
+  text-align: center;
   transition: .2s ease;
   width: 100%;
 
@@ -40,10 +41,6 @@ a {
     font-size: 1.2rem;
     margin-top: .5rem;
 
-    &[name = "cardSubmit"] {
-      width: 100%;
-    }
-
     &:hover {
       transition: .2s ease;
     }
@@ -53,6 +50,12 @@ a {
     color: $primary;
     line-height: 1.5rem;
   }
+}
+
+.how-to {
+  margin: 1.5rem auto;
+  padding: 1rem 3rem;
+  width: 75%;
 }
 
 main.section {
@@ -65,12 +68,6 @@ main.section {
     justify-content: center;
   }
 
-  .how-to {
-    border: 1px solid $grey-lighter;
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-  }
-
   .box {
     box-shadow: none;
     margin-bottom: 1rem;
@@ -79,7 +76,7 @@ main.section {
 
     p {
       color: $grey-lighter;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       left: 0;
       line-height: 2rem;
       position: absolute;
