@@ -69,7 +69,12 @@ form2.addEventListener('submit', (e) => {
   // Enable drap and drop
   render.dropCards('.story.card', '.drag-category')
 
-  // $('.box.category').draggable()
-
   form2.reset()
+})
+
+const newE = document.querySelector('#new')
+newE.addEventListener('click', () => {
+  localStorage.clear()
+  stories.innerHTML = ''
+  catSection.innerHTML = ''
 })

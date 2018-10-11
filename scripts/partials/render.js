@@ -45,6 +45,7 @@ const showCategory = (container) => {
   container.innerHTML = cats
 
   dropCards('.story.card', '.drag-category')
+
 }
 
 const dropCards = (drag, drop) => {
@@ -74,11 +75,13 @@ const dropCards = (drag, drop) => {
       // Local Storge Setup
       const storage = localStorage.getItem('results') || ''
 
-        if (storage.length > 0) {
-          data.categories = JSON.parse(storage)
-          const catSection = document.querySelector('.story-categories')
-          showCategory(catSection)
-        }
+      if (storage.length > 0) {
+        data.categories = JSON.parse(storage)
+        this.innerHTML = catSorted
+      }
+
+      this.innerHTML = catSorted
+      setLocalStorage('categoryData', data.categories)
     }
   })
 }
@@ -101,7 +104,6 @@ const handleRemove = (deleter) => {
         //Render Cards and Save to Storage
         showCard(stories)
         setLocalStorage('cardsData', data.cards)
-
       }
     })
   }
@@ -110,7 +112,6 @@ const handleRemove = (deleter) => {
 const setLocalStorage = (dataType, dataSource) => {
   return localStorage.setItem( dataType, JSON.stringify(dataSource));
 }
-
 
 module.exports = {
   headerJS, fillOutCard, showCard, handleRemove, fillOutCategory, showCategory, dropCards, setLocalStorage

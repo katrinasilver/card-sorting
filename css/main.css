@@ -6429,7 +6429,8 @@ a {
 .navbar .button {
   font-size: 1.2rem;
   font-weight: 300;
-  padding: 1rem; }
+  padding: 1rem;
+  margin-right: 1rem; }
 
 .navbar .navbar-burger span {
   color: #3273dc; }
