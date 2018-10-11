@@ -6488,6 +6488,7 @@ main.section {
     main.section .box .subtitle {
       border-radius: 3px 3px 0 0;
       font-weight: 300;
+      margin: 0;
       padding: .5rem; }
       main.section .box .subtitle i {
         font-size: 1rem; }

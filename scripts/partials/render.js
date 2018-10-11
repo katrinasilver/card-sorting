@@ -22,9 +22,7 @@ const headerJS = () => {
 }
 
 // Render the Story Card Form
-const fillOutCard = (container) => {
-    container.innerHTML = templates.cardForm()
-}
+const fillOutCard = (container) => container.innerHTML = templates.cardForm()
 
 // Render Story Card
 const showCard = (container) => {
@@ -41,7 +39,7 @@ const showCategory = (container) => {
   container.innerHTML = cats
 }
 
-const dragDrop = (drag, drop) => {
+const dropCards = (drag, drop) => {
 
   // Drag and drop function
   $(drag).draggable()
@@ -50,20 +48,47 @@ const dragDrop = (drag, drop) => {
   $(drop).droppable({
     accept: drag,
     drop: function (event, ui) {
-      const cards = ui.draggable
       const cardId = ui.draggable[0].getAttribute('data-id')
-      for (let card of cards) {
-        $(card).remove()
-        // console.log(cardId);
-        $(this).append(templates.sortedCards(cardId, card.innerText))
-      }
+      const card = document.querySelector(`#card-${cardId}`)
+      const findIndex = data.cards.find(card => card.id === cardId)
+      const idx = data.cards.indexOf(findIndex)
 
-      const sortedCard = document.querySelector(`#sorted-${cardId}`)
-      sortedCard.addEventListener('click', (e) => {
-        $('#stories').append(templates.storyCard(e.target.textContent, e.target.cardId))
-        $(e.target).remove()
-        $(drag).draggable()
-      })
+      const cty = this.getAttribute('data-cat')
+      const category = data.categories.find(cat => cat.id === cty )
+      const catIdx = data.categories.indexOf(category)
+
+      data.categories[catIdx].cards.push(findIndex)
+      data.cards.splice(idx, 1)
+
+      let catSorted = data.categories[catIdx].cards.map((card) => templates.sortedCards(card.id, card.text)).join('')
+      // $(this).append(catSorted)
+      $(card).remove()
+
+      const catSection = document.querySelector('.story-categories')
+      catSection.innerHTML = templates.cardCategory(catSorted)
+
+      // Return unwanted cards to card data
+      // const sortedCard = document.querySelector(`#sorted-${cardId}`)
+      // sortedCard.addEventListener('click', (e) => {
+      //   const sortedId = e.target.dataset.sorted
+
+      //   const cid = () => {
+      //     for (let i = 0; i < data.categories[idx].cards.length; i++)      {
+      //       return data.categories[catIdx].cards[i]
+      //     }
+      //   }
+
+      //   const findSorted = data.categories[catIdx].cards[cid()].find(cid => cid === sortedId)
+      //   console.log(findSorted)
+        // let sortIdx = data.cards.indexOf(findSorted)
+        // data.categories.splice(sortIdx, 1)
+
+        // let bar = data.cards[idx].map(() => templates.storyCard(card.text, card.id))
+
+        // $('#stories').append(bar)
+        // $(sortedCard).remove()
+      //   $(drag).draggable()
+      // })
     }
   })
 }
@@ -94,5 +119,5 @@ const handleRemove = (deleter) => {
 }
 
 module.exports = {
-  headerJS, fillOutCard, showCard, handleRemove, fillOutCategory, showCategory, dragDrop
+  headerJS, fillOutCard, showCard, handleRemove, fillOutCategory, showCategory, dropCards
 }

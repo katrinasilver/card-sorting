@@ -33,11 +33,11 @@ const catForm = () => {
 
 const cardCategory = (category, catId) => {
   return `
-    <div class="box category is-paddingless" data-id="cat-${catId}">
+    <div class="box category is-paddingless">
       <h3 class="subtitle is-4 has-text-centered has-text-white has-background-primary">
         ${category}
       </h3>
-      <div class="drag-category">
+      <div class="drag-category" data-cat="${catId}">
         <p class="has-text-centered">Drop Story Cards Here!</p>
       </div>
     </div>
@@ -51,7 +51,8 @@ const catValue = (catVal) => {
 // Sorted Cards in Categories
 const sortedCards = (id, value) => {
   return `
-    <div id="sorted-${id}" class="button storyline">${value}
+    <div id="sorted-${id}" class="button storyline" data-sorted="${id}">
+     ${value}
     </div>
   `
 }
