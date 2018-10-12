@@ -19,7 +19,7 @@ newCard.addEventListener('submit', (e) => {
     "text": e.target.storycard.value,
     "id": shortId.generate()
   }
-  data.cards.unshift(cd) // Add new card to data
+  data.cards.push(cd) // Add new card to data
   render.showCard(stories) // Add new card to the DOM
   render.setLocalStorage('cardsData', data.cards) // Store new card
   render.dropCards('.story.card', '.drag-category') // Drag and drop
@@ -42,7 +42,7 @@ newCategory.addEventListener('submit', (e) => {
     "id": shortId.generate(),
     "cards": []
   }
-  data.categories.unshift(ct) // Add new card to data
+  data.categories.push(ct) // Add new card to data
   render.showCategory(catSection) // Add new card to the DOM
   render.setLocalStorage('categoryData', data.categories) // Store new category
   render.dropCards('.story.card', '.drag-category') // Drag and drop
@@ -52,8 +52,6 @@ newCategory.addEventListener('submit', (e) => {
 // New Exercise
 const newE = document.querySelector('#new')
 newE.addEventListener('click', () => {
-
-
   localStorage.clear()
   stories.innerHTML = ''
   catSection.innerHTML = ''
