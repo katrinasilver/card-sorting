@@ -5,7 +5,4 @@ Card sorting is a technique in UX Design in which a group of subject experts or 
 ![Card Sorting](./wireframe.jpg "Card Sorting")
 
 ## How to Use
-Read the instructions in the demo
-
-## Issues
-Please report bugs in the issues tab
+Read the instructions in the [demo](http://card-sorting-exercise.surge.sh/)
