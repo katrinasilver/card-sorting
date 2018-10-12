@@ -2,78 +2,58 @@ const render = require('./partials/render')
 const data = require('./partials/data')
 const shortId = require('short-id')
 
-render.headerJS()
-
-// Create a card
+render.headerJS() // Header stuff
+// Create a Card
 const storyForm = document.querySelector('#storyForm')
-render.fillOutCard(storyForm)
-
-// Get Cards Data and Save to Local Storage
 const stories = document.querySelector('#stories')
-const saveC = localStorage.getItem('cardsData') || '[]'
-
+render.fillOutCard(storyForm) // Generate Card Form
+const saveC = localStorage.getItem('cardsData') || '[]' // Retrieve card data if any
 if (saveC.length > 0) {
   data.cards = JSON.parse(saveC)
   render.showCard(stories)
 }
-
-// Show the new card in stories section
-const form1 = document.querySelector('#card')
-form1.addEventListener('submit', (e) => {
+const newCard = document.querySelector('#card')
+newCard.addEventListener('submit', (e) => {
   e.preventDefault()
   const cd = {
     "text": e.target.storycard.value,
     "id": shortId.generate()
   }
-  data.cards.unshift(cd)
-
-  //Render Cards and Save to Storage
-  render.showCard(stories)
-  render.setLocalStorage('cardsData', data.cards)
-
-  // Enable drap and drop
-  render.dropCards('.story.card', '.drag-category')
-
-  form1.reset()
+  data.cards.unshift(cd) // Add new card to data
+  render.showCard(stories) // Add new card to the DOM
+  render.setLocalStorage('cardsData', data.cards) // Store new card
+  render.dropCards('.story.card', '.drag-category') // Drag and drop
+  newCard.reset()
 })
-
 // Create a Category
 const categoryForm = document.querySelector('#create-category')
-render.fillOutCategory(categoryForm)
-
-// Get Category Data and Save to Local Storage
 const catSection = document.querySelector('.story-categories')
-const saveCT = localStorage.getItem('categoryData') || '[]'
-
+render.fillOutCategory(categoryForm) // Generate category Form
+const saveCT = localStorage.getItem('categoryData') || '[]' // Retrieve category data if any
 if (saveCT.length > 0) {
   data.categories = JSON.parse(saveCT)
   render.showCategory(catSection)
 }
-
-const form2 = document.querySelector('#category')
-form2.addEventListener('submit', (e) => {
+const newCategory = document.querySelector('#category')
+newCategory.addEventListener('submit', (e) => {
   e.preventDefault()
   const ct = {
     "text": e.target.catcard.value,
     "id": shortId.generate(),
     "cards": []
   }
-
-  // Show created category
-  data.categories.unshift(ct)
-
-  //Render Categories and Save to Storage
-  render.showCategory(catSection)
-  render.setLocalStorage('categoryData', data.categories)
-
-  // Enable drap and drop
-  render.dropCards('.story.card', '.drag-category')
-
-  form2.reset()
+  data.categories.unshift(ct) // Add new card to data
+  render.showCategory(catSection) // Add new card to the DOM
+  render.setLocalStorage('categoryData', data.categories) // Store new category
+  render.dropCards('.story.card', '.drag-category') // Drag and drop
+  $('.box.category').draggable()
+  newCategory.reset()
 })
-
+// New Exercise
 const newE = document.querySelector('#new')
 newE.addEventListener('click', () => {
+
+
   localStorage.clear()
   stories.innerHTML = ''
   catSection.innerHTML = ''
