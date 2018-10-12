@@ -1,5 +1,6 @@
 const render = require('./partials/render')
 const data = require('./partials/data')
+const templates = require('./partials/templates')
 const shortId = require('short-id')
 
 render.headerJS() // Header stuff
@@ -16,7 +17,7 @@ const newCard = document.querySelector('#card')
 newCard.addEventListener('submit', (e) => {
   e.preventDefault()
   const cd = {
-    "text": e.target.storycard.value,
+    "cardvalue": e.target.storycard.value,
     "id": shortId.generate()
   }
   data.cards.push(cd) // Add new card to data
@@ -38,8 +39,8 @@ const newCategory = document.querySelector('#category')
 newCategory.addEventListener('submit', (e) => {
   e.preventDefault()
   const ct = {
-    "text": e.target.catcard.value,
-    "id": shortId.generate(),
+    "category": e.target.catcard.value,
+    "cid": shortId.generate(),
     "cards": []
   }
   data.categories.push(ct) // Add new card to data
@@ -55,4 +56,17 @@ newE.addEventListener('click', () => {
   localStorage.clear()
   stories.innerHTML = ''
   catSection.innerHTML = ''
+})
+
+const submit = document.querySelector('#complete')
+submit.addEventListener('click', () => {
+
+  const content = document.querySelector('#results')
+  const sortedResults = localStorage.getItem('categoryData') || '{}'
+
+  const parser = JSON.parse(sortedResults)
+
+  const result = parser.map((data) => templates.final(data.category, data.cardvalue, data.id)).join('')
+  content.innerHTML = result
+  console.log(parser)
 })

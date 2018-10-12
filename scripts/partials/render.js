@@ -26,7 +26,7 @@ const fillOutCategory = (container) => container.innerHTML = templates.catForm()
 
 // Create Card Elements
 const showCard = (container) => {
-  const cards = data.cards.map(card => templates.storyCard(card.text, card.id)).join('')
+  const cards = data.cards.map(card => templates.storyCard(card.cardvalue, card.id)).join('')
   container.innerHTML = cards
   handleRemove(document.querySelectorAll('a.fa-times')) // Remove card
   dropCards('.story.card', '.drag-category') // Drag and drop
@@ -34,7 +34,7 @@ const showCard = (container) => {
 
 // Create Category Elements
 const showCategory = (container) => {
-  const cats = data.categories.map(cats => templates.cardCategory(cats.text, cats.id)).join('')
+  const cats = data.categories.map(cats => templates.cardCategory(cats.category, cats.cid)).join('')
   container.innerHTML = cats
   dropCards('.story.card', '.drag-category') // Drag and drop
 }
@@ -53,16 +53,17 @@ const dropCards = (drag, drop) => {
 
       // Target the specific category the card is being moved to! //
       const cty = this.getAttribute('data-cat') // get the current category's data-cat
-      const category = data.categories.find(cat => cat.id === cty) // compare id to id's in data
+      const category = data.categories.find(cat => cat.cid === cty) // compare id to id's in data
       const catIdx = data.categories.indexOf(category) // get the index number of each category
 
       data.cards.splice(idx, 1) // remove the found card from data.cards
       data.categories[catIdx].cards.push(findIndex) // push the found card into this category
 
-      const catSorted = data.categories[catIdx].cards.map((card) => templates.sortedCards(card.id, card.text)).join('') // map the selected cards to template for sorted cards
+      const catSorted = data.categories[catIdx].cards.map((card) => templates.sortedCards(card.id, card.cardvalue)).join('') // map the selected cards to template for sorted cards
       $(card).remove() // remove the card from #stories
 
       this.innerHTML = catSorted
+      setLocalStorage('cardsData', data.cards) // Store new card
       setLocalStorage('categoryData', data.categories) // Save parsed data to storage
     }
   })
