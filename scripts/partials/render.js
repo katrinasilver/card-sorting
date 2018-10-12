@@ -50,16 +50,15 @@ const dropCards = (drag, drop) => {
       // Target the specific card being dragged //
       const cardId = ui.draggable[0].getAttribute('data-id') // get data-id of each card
       const card = document.querySelector(`#card-${cardId}`) // find the cards
-      const findIndex = data.cards.find(card => card.id === cardId) // compare id to id's in data
-      const idx = data.cards.indexOf(findIndex) // get the index number of each card
+      const foundCard = data.cards.find(card => card.id === cardId)
+      const idx = data.cards.findIndex(card => card.id === cardId)
 
-      // Target the specific category the card is being moved to! //
+      console.log(foundCard, idx)
+
       const cty = this.getAttribute('data-cat') // get the current category's data-cat
-      const category = data.categories.find(cat => cat.cid === cty) // compare id to id's in data
-      const catIdx = data.categories.indexOf(category) // get the index number of each category
-
+      const catIdx = data.categories.findIndex(cat => cat.cid === cty) // find category index
       data.cards.splice(idx, 1) // remove the found card from data.cards
-      data.categories[catIdx].cards.push(findIndex) // push the found card into this category
+      data.categories[catIdx].cards.push(foundCard) // push the found card into this category
 
       const catSorted = data.categories[catIdx].cards.map((card) => templates.sortedCards(card.id, card.cardvalue)).join('') // map the selected cards to template for sorted cards
       $(card).remove() // remove the card from #stories
