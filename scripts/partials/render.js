@@ -70,11 +70,8 @@ const dropCards = (drag, drop) => {
 
       const submit = document.querySelector('#complete')
       const catSection = document.querySelector('.story-categories')
-      const getSorted = localStorage.getItem('sorted') || '[]'
-      const parsed = JSON.parse(getSorted)
-      const findI = data.sorted.find(s => s.id)
-      const ind = data.sorted.indexOf(findI)
-      console.log(findI)
+      // const getSorted = localStorage.getItem('sorted') || '[]'
+      // const parsed = JSON.parse(getSorted)
 
       const sort = {
         category: data.categories[catIdx].category,
@@ -88,7 +85,7 @@ const dropCards = (drag, drop) => {
       // console.log(sort)
 
       submit.addEventListener('click', () => {
-        const result = parsed.map((data) => templates.final(data.category, data.card, data.id)).join('')
+        const result = data.sorted.map((data) => templates.final(data.category, data.card, data.id)).join('')
         catSection.innerHTML = result
       })
     }
