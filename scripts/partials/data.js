@@ -1,5 +1,4 @@
-module.exports.cards = [
-]
+module.exports.cards = []
 
 module.exports.categories = [
   // {
@@ -9,4 +8,8 @@ module.exports.categories = [
   //     { "cardvalue": "A", "id": "f24143" }
   //   ]
   // }
+]
+
+module.exports.sorted = [
+
 ]

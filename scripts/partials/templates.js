@@ -57,14 +57,11 @@ const sortedCards = (id, value) => {
   `
 }
 
-const final = (category, cardvalue, id) => {
+// Sorted Cards in Categories
+const final = (category, card, id) => {
   return `
-    <div id="final-${id}" class="box category is-paddingless" data-final="${id}">
-      <h3 class="subtitle is-4 has-text-centered has-text-white has-background-primary">
-      Category Name: ${category}
-      </h3>
-      <p class="has-text-centered">Card Name: ${cardvalue}</p>
-      <span class="tag">Story ID: ${id}</span>
+    <div id="sorted-${id}" class="button storyline" data-sorted="${id}">
+    Category: ${category} Card: ${card}
     </div>
   `
 }
