@@ -2,47 +2,64 @@ const render = require('./partials/render')
 const data = require('./partials/data')
 const shortId = require('short-id')
 
-// Responsive header config
-render.headerJS()
-
-// Create a card
+render.headerJS() // Header stuff
+// Create a Card
 const storyForm = document.querySelector('#storyForm')
-render.fillOutCard(storyForm)
-// Show the new card in stories section
-const form1 = document.querySelector('#card')
-form1.addEventListener('submit', (e) => {
+const stories = document.querySelector('#stories')
+
+render.fillOutCard(storyForm) // Generate Card Form
+const saveC = localStorage.getItem('cardsData') || '[]' // Retrieve card data if any
+if (saveC.length > 0) {
+  data.cards = JSON.parse(saveC)
+  render.showCard(stories)
+}
+
+const newCard = document.querySelector('#card')
+newCard.addEventListener('submit', (e) => {
   e.preventDefault()
   const cd = {
-    "text": e.target.storycard.value,
-    "id": shortId.generate()
+    cardvalue: e.target.storycard.value,
+    id: shortId.generate()
   }
-  data.cards.unshift(cd)
-  render.showCard(document.querySelector('#stories'))
-
-  //Delete a card
-  const del = document.querySelectorAll('a.fa-times')
-  render.handleRemove(del)
-
-  render.dragDrop('.story.card', '.drag-category')
+  data.cards.push(cd) // Add new card to data
+  render.showCard(stories) // Add new card to the DOM
+  render.setLocalStorage('cardsData', data.cards) // Store new card
+  render.dropCards('.story.card', '.drag-category') // Drag and drop
+  newCard.reset()
 })
 
 // Create a Category
 const categoryForm = document.querySelector('#create-category')
 const catSection = document.querySelector('.story-categories')
-render.fillOutCategory(categoryForm)
-// Show the new category in categories section
-const form2 = document.querySelector('#category')
-form2.addEventListener('submit', (e) => {
+
+render.fillOutCategory(categoryForm) // Generate category Form
+const saveCT = localStorage.getItem('categoryData') || '[]' // Retrieve category data if any
+if (saveCT.length > 0) {
+  data.categories = JSON.parse(saveCT)
+  render.showCategory(catSection)
+}
+
+const newCategory = document.querySelector('#category')
+newCategory.addEventListener('submit', (e) => {
   e.preventDefault()
   const ct = {
-    "text": e.target.catcard.value,
-    "id": shortId.generate()
+    category: e.target.catcard.value,
+    cid: shortId.generate(),
+    cards: []
   }
-  data.categories.unshift(ct)
-  render.showCategory(catSection)
+  data.categories.push(ct) // Add new card to data
+  render.showCategory(catSection) // Add new card to the DOM
+  render.setLocalStorage('categoryData', data.categories) // Store new category
+  render.dropCards('.story.card', '.drag-category') // Drag and drop
+  $('.box.category').draggable()
+  newCategory.reset()
+})
 
-  render.dragDrop('.story.card', '.drag-category')
-
-  const del = document.querySelectorAll('a.fa-times')
-  render.handleRemove(del)
+// New Exercise
+const newE = document.querySelector('#new')
+newE.addEventListener('click', () => {
+  localStorage.clear()
+  stories.innerHTML = ''
+  catSection.innerHTML = ''
+  window.location.reload(true)
 })

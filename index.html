@@ -34,13 +34,32 @@
       <div id="navbarItems" class="navbar-menu">
         <div class="navbar-end">
           <div class="navbar-item">
-            <a class="button is-primary is-medium">Submit Exercise</a>
+            <a id="new" class="button is-danger is-medium">New Exercise</a>
+            <a id="complete" class="button is-primary is-medium">Submit Exercise</a>
           </div>
         </div>
       </div>
     </div>
   </nav>
   <div class="container">
+    <!-- Instructions -->
+    <div class="how-to notification has-background-light has-text-grey">
+      <strong>Instructions:</strong>
+      <ol>
+        <li>
+          Group the cards on the left based on what
+          makes most sense to you. Don't worry, there are no right or wrong answers!
+        </li>
+        <li>
+          Once you're done grouping, start creating the categories for each of your groups on the right side of the page.
+        </li>
+        <li>Drop individual cards into the Categories you created based on your groupings.</li>
+        <li>
+          Click the <strong>Submit Exercise</strong>
+          button on the top right when you're done.
+        </li>
+      </ol>
+    </div>
     <main class="section columns is-clearfix">
       <!-- Story Cards -->
       <aside class="sidebar column is-one-quarter-desktop">
@@ -55,15 +74,11 @@
       </aside>
 
       <section class="main column">
-        <!-- Instructions -->
-        <div class="how-to notification has-background-light has-text-centered has-text-grey">
-          <strong>Instructions:</strong> Create Card Categories below. Drag the Story Cards on the left into the Category that makes sense to you. Don't worry, there are no right or wrong answers!&nbsp;Click the <strong>Submit Exercise</strong> button on the top right when you're done.
-        </div>
         <!-- Story Categories -->
         <div id="create-category" class="create-category">
           <!-- Append Form Here -->
         </div>
-        <div class="story-categories section is-marginless is-paddingless">
+        <div id="results" class="story-categories section is-marginless is-paddingless">
           <!-- Append Categories Here -->
         </div>
       </section>
