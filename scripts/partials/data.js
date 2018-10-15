@@ -10,6 +10,4 @@ module.exports.categories = [
   // }
 ]
 
-module.exports.sorted = [
-
-]
+module.exports.sorted = []

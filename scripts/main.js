@@ -51,7 +51,6 @@ newCategory.addEventListener('submit', (e) => {
   render.showCategory(catSection) // Add new card to the DOM
   render.setLocalStorage('categoryData', data.categories) // Store new category
   render.dropCards('.story.card', '.drag-category') // Drag and drop
-  $('.box.category').draggable()
   newCategory.reset()
 })
 
@@ -59,7 +58,5 @@ newCategory.addEventListener('submit', (e) => {
 const newE = document.querySelector('#new')
 newE.addEventListener('click', () => {
   localStorage.clear()
-  stories.innerHTML = ''
-  catSection.innerHTML = ''
   window.location.reload(true)
 })

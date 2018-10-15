@@ -29,8 +29,6 @@ const showCard = (container) => {
   const cards = data.cards.map(card => templates.storyCard(card.cardvalue, card.id)).join('')
   container.innerHTML = cards
   handleRemove(document.querySelectorAll('a.fa-times')) // Remove card
-  $('#stories').sortable()
-  $('#stories').disableSelection()
   dropCards('.story.card', '.drag-category') // Drag and drop
 }
 
@@ -53,8 +51,6 @@ const dropCards = (drag, drop) => {
       const foundCard = data.cards.find(card => card.id === cardId)
       const idx = data.cards.findIndex(card => card.id === cardId)
 
-      console.log(foundCard, idx)
-
       const cty = this.getAttribute('data-cat') // get the current category's data-cat
       const catIdx = data.categories.findIndex(cat => cat.cid === cty) // find category index
       data.cards.splice(idx, 1) // remove the found card from data.cards
@@ -62,16 +58,13 @@ const dropCards = (drag, drop) => {
 
       const catSorted = data.categories[catIdx].cards.map((card) => templates.sortedCards(card.id, card.cardvalue)).join('') // map the selected cards to template for sorted cards
       $(card).remove() // remove the card from #stories
-
       this.innerHTML = catSorted
-      // setLocalStorage('cardsData', data.cards) // Store new card
-      setLocalStorage('categoryData', data.categories) // Save parsed data to storage
+      setLocalStorage('categoryData', data.categories) // Save data to storage
 
       const submit = document.querySelector('#complete')
       const catSection = document.querySelector('.story-categories')
-      // const getSorted = localStorage.getItem('sorted') || '[]'
-      // const parsed = JSON.parse(getSorted)
 
+      // Create a parsable data model
       const sort = {
         category: data.categories[catIdx].category,
         card: data.categories[catIdx].cards[idx].cardvalue,
@@ -79,9 +72,7 @@ const dropCards = (drag, drop) => {
       }
 
       data.sorted.push(sort)
-      setLocalStorage('sorted', data.sorted)
-
-      // console.log(sort)
+      setLocalStorage('sorted', data.sorted) // store sorted data
 
       submit.addEventListener('click', () => {
         const result = data.sorted.map((data) => templates.final(data.category, data.card, data.id)).join('')

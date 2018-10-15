@@ -66,14 +66,6 @@ const final = (category, card, id) => {
   `
 }
 
-// const sortValue = (sortVal) => {
-//   return sortVal.map(sort => sortedCards(sort.category, sort.value, sort.id, sort.catId))
-// }
-
-// const finalValue = (final) => {
-//   return final.map(sort => final(sort.category, sort.cardvalue, sort.id))
-// }
-
 module.exports = {
   cardForm, storyCard, storyValue, cardCategory, catForm, catValue, sortedCards, final
 }
