@@ -57,12 +57,11 @@ const dropCards = (drag, drop) => {
       data.categories[catIdx].cards.push(foundCard) // push the found card into this category
 
       const catSorted = data.categories[catIdx].cards.map((card) => templates.sortedCards(card.id, card.cardvalue)).join('') // map the selected cards to template for sorted cards
-      $(card).remove() // remove the card from #stories
       this.innerHTML = catSorted
-      setLocalStorage('categoryData', data.categories) // Save data to storage
+      $(card).remove() // remove the card from #stories
 
-      const submit = document.querySelector('#complete')
-      const catSection = document.querySelector('.story-categories')
+      setLocalStorage('cardsData', data.cards) // Save data to storage
+      setLocalStorage('categoryData', data.categories) // Save data to storage
 
       // Create a parsable data model
       const sort = {
@@ -73,10 +72,16 @@ const dropCards = (drag, drop) => {
 
       data.sorted.push(sort)
       setLocalStorage('sorted', data.sorted) // store sorted data
+      console.log(data.sorted.length);
 
+      data.sorted = JSON.parse(localStorage.getItem('sorted'))
+
+      const catSection = document.querySelector('.story-categories')
+      const submit = document.querySelector('#complete')
       submit.addEventListener('click', () => {
         const result = data.sorted.map((data) => templates.final(data.category, data.card, data.id)).join('')
         catSection.innerHTML = result
+        setLocalStorage('sorted', data.sorted) // store sorted data
       })
     }
   })
