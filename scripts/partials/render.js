@@ -64,24 +64,24 @@ const dropCards = (drag, drop) => {
       setLocalStorage('categoryData', data.categories) // Save data to storage
 
       // Create a parsable data model
-      const sort = {
-        category: data.categories[catIdx].category,
-        card: data.categories[catIdx].cards[idx].cardvalue,
-        id: data.categories[catIdx].cards[idx].id
-      }
+      // const sort = {
+      //   category: data.categories[catIdx].category,
+      //   card: data.categories[catIdx].cards[idx].cardvalue,
+      //   id: data.categories[catIdx].cards[idx].id
+      // }
 
-      data.sorted.push(sort)
-      setLocalStorage('sorted', data.sorted) // store sorted data
-      console.log(data.sorted.length);
+      // data.sorted.push(sort)
+      // setLocalStorage('sorted', data.sorted)
 
-      data.sorted = JSON.parse(localStorage.getItem('sorted'))
-
-      const catSection = document.querySelector('.story-categories')
       const submit = document.querySelector('#complete')
+      // const catSection = document.querySelector('.story-categories')
+      // data.sorted = JSON.parse(localStorage.getItem('sorted'))
+
       submit.addEventListener('click', () => {
-        const result = data.sorted.map((data) => templates.final(data.category, data.card, data.id)).join('')
-        catSection.innerHTML = result
-        setLocalStorage('sorted', data.sorted) // store sorted data
+        // const result = data.sorted.map((data) => templates.final(data.category, data.card, data.id)).join('')
+        // catSection.innerHTML = result
+        // setLocalStorage('sorted', data.sorted)
+        console.log('download csv!')
       })
     }
   })
