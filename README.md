@@ -3,8 +3,8 @@ Card sorting is a technique in UX Design in which a group of subject experts or 
 
 - [How to use](https://github.com/katrinasilver/card-sorting#how-to-use)
 - [Installation](https://github.com/katrinasilver/card-sorting#installation)
-- [Contributing](https://github.com/katrinasilver/card-sorting#Contributing)
-- [Issues](https://github.com/katrinasilver/card-sorting#Issues)
+- [Contributing](https://github.com/katrinasilver/card-sorting#contributing)
+- [Issues](https://github.com/katrinasilver/card-sorting#issues)
 
 ## How to Use
 Read the instructions in the [demo](http://card-sorting-exercise.surge.sh/)
