@@ -13,11 +13,11 @@ Read the instructions in the [demo](http://card-sorting-exercise.surge.sh/)
 ## Installation
 
 - Fork and clone this repository
-- Run `npm install` to get all dependencies. Make sure you have [nodejs](http://nodejs.org) already installed prior.
-- See the scripts section of the package.json for terminal commands avaiable for javascript and sass compiling
+- Run `npm install` to get all dependencies. Make sure you have [nodejs](http://nodejs.org) already installed beforehand.
+- See the scripts section of the package.json for terminal commands for javascript and sass compiling
 
 ## Updates
 Please submit a [pull request](https://github.com/katrinasilver/card-sorting/pulls) if you would like to contribute to this repository
 
 ## Issues
-Post issues [here](https://github.com/katrinasilver/card-sorting/issues)
+Post bugs and issues [here](https://github.com/katrinasilver/card-sorting/issues)
