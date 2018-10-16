@@ -73,11 +73,10 @@ const dropCards = (drag, drop) => {
       // data.sorted.push(sort)
       // setLocalStorage('sorted', data.sorted)
 
-      const submit = document.querySelector('#complete')
       // const catSection = document.querySelector('.story-categories')
       // data.sorted = JSON.parse(localStorage.getItem('sorted'))
 
-      const submit = document.querySelector('#submit')
+      const submit = document.querySelector('#complete')
       submit.addEventListener('click', () => {
         // const result = data.sorted.map((data) => templates.final(data.category, data.card, data.id)).join('')
         // catSection.innerHTML = result
